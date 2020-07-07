@@ -4,25 +4,13 @@
         <div class="row">
             <div class="col col-sm-8">
                 <div class="row">
+                    @foreach($layanan as $lyn)
                     <div class="col">
                         <div class="card">
-                            <div class="card-header bg-info text-light">Nama layanan</div>
+                            <div class="card-header bg-info text-light">{{ $lyn->nama }}</div>
                             <div class="card-body">
-                                <img src="{{asset('image/green.jpg')}}" alt="" class="img-thumbnail">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <div class="card-footer d-inline">
-                                    <button class="btn btn-primary btn-sm" data-target="#modalLayanan" data-toggle="modal">Ubah</button>
-                                    <button class="btn btn-danger btn-sm">Hapus</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-info text-light">Nama layanan</div>
-                            <div class="card-body">
-                                <img src="{{asset('image/green.jpg')}}" alt="" class="img-thumbnail">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                                <img src="{{asset('image/'.$lyn->image)}}" alt="" class="img-thumbnail">
+                                <p>{{ $lyn->deskripsi }}</p>
                                 <div class="card-footer d-inline">
                                     <button class="btn btn-primary btn-sm">Ubah</button>
                                     <button class="btn btn-danger btn-sm">Hapus</button>
@@ -30,19 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-info text-light">Nama layanan</div>
-                            <div class="card-body">
-                                <img src="{{asset('image/green.jpg')}}" alt="" class="img-thumbnail">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                                <div class="card-footer d-inline">
-                                    <button class="btn btn-primary btn-sm">Ubah</button>
-                                    <button class="btn btn-danger btn-sm">Hapus</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col col-sm-4 border-left">
@@ -50,8 +26,13 @@
                     <div class="card-body">
                         <h4 class="text-center mt-3">Tambah layanan</h4>
                         <hr>
-                        <form action="" method="POST">
+                        <form action="{{url('admin/layanan')}}" method="POST">
                             @csrf
+                            @if (session('status'))
+                            <div class='alert alert-success'>
+                                {{ session('status') }}
+                            </div>
+                            @endif
                             <div class="form-group">
                                 <label for="name">Nama layanan</label>
                                 <input type="text" name="nama" id="nama" class="form-control">

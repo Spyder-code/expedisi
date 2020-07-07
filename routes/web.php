@@ -25,6 +25,7 @@ Route::get('/admin/owner', 'HomeController@owner');
 Route::get('/admin/expedisi', 'HomeController@expedisi');
 Route::get('/admin/pesan', 'HomeController@pesan');
 Route::get('/admin/transaksi', 'HomeController@transaksi');
-
+Route::post('/admin/expedisi', 'ExpeditionController@store');
+Route::post('/admin/layanan', 'ServiceController@store');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

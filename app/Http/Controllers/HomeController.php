@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Expedition;
+use App\Transaction;
+use App\Service;
+use App\Chats;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +35,8 @@ class HomeController extends Controller
 
     public function layanan()
     {
-        return view('admin.layanan');
+        $layanan = Service::all();
+        return view('admin.layanan',['layanan' => $layanan]);
     }
 
     public function owner()
@@ -48,16 +53,21 @@ class HomeController extends Controller
 
     public function expedisi()
     {
-        return view('admin.expedisi');
+        $expedisi = Expedition::all();
+        return view('admin.expedisi', ['expedisi' => $expedisi]);
     }
 
     public function transaksi()
     {
-        return view('admin.transaksi');
+        $transaksi = Transaction::all();
+        $expedisi = Expedition::all();
+        return view('admin.transaksi', ['transaksi' => $transaksi, 'expedisi' => $expedisi]);
     }
 
     public function pesan()
     {
         return view('admin.pesan');
     }
+
+    
 }

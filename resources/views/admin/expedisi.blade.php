@@ -16,14 +16,16 @@
                           </tr>
                         </thead>
                         <tbody>
+                            @foreach($expedisi as $ex)
                            <tr>
-                              <th scope="row">1</th>
-                              <td>Expedisi jawa - bali</td>
-                              <td>12000</td>
-                              <td>Jawa</td>
-                              <td>Bali</td>
+                              <th scope="row">{{ $loop->iteration }}</th>
+                              <td>{{ $ex->nama }}</td>
+                              <td>{{ $ex->harga }}</td>
+                              <td>{{ $ex->dari }}</td>
+                              <td>{{ $ex->tujuan }}</td>
                               <td><button class="btn btn-sm btn-primary">Lihat detail</button></td>
                             </tr>
+                            @endforeach
                         </tbody>
                       </table>
                 </div>
@@ -33,8 +35,13 @@
                     <div class="card-body">
                         <h4 class="text-center mt-3">Tambah Expedisi</h4>
                         <hr>
-                        <form action="" method="POST">
+                        <form action="{{url('admin/expedisi')}}" method="POST">
                             @csrf
+                            @if (session('status'))
+                            <div class='alert alert-success'>
+                                {{ session('status') }}
+                            </div>
+                            @endif
                             <div class="form-group">
                                 <label for="name">Nama Expedisi</label>
                                 <input type="text" name="nama" id="nama" class="form-control">

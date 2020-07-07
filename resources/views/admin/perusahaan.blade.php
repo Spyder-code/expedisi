@@ -45,7 +45,7 @@
             <div class="row mt-5 mb-5 mr-5 ml-5">
                 <div class="col col-4">
                     <h4 class="card-title">Icon perusahaan</h4>
-                    <img src="{{ URL::to('/') }}/owner/images/{{ $perusahaan->icon }}" class="img-thumbnail" alt="">
+                    <img src="{{asset('image/'.$perusahaan->logo)}}" class="img-thumbnail" alt="">
                     <button data-toggle="modal" data-target="#modalIcon" class="btn btn-sm btn-primary mt-2">Edit Icon <span class="mdi mdi-camera"></span></button>
                 </div>
                 <div class="col">

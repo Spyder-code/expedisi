@@ -10,11 +10,13 @@
                             <div class="form-row">
                                 <div class="col col-2">Nama Expedisi</div>
                                 <div class="col">
+                                    
                                     <select name="expedisi" class="form-control" id="expedisi">
-                                        <option value="1">surabaya-madura</option>
-                                        <option value="1">surabaya-madura</option>
-                                        <option value="1">surabaya-madura</option>
+                                    @foreach($expedisi as $ex)
+                                        <option value="{{ $ex->nama }}">{{ $ex->nama }}</option>
+                                    @endforeach
                                     </select>
+                                    
                                 </div>
                             </div>
                         </div>
