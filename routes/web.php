@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return redirect('login');
-});
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
@@ -42,3 +40,7 @@ Route::post('/GantiNomorOwner', 'OwnerController@GantiNomorOwner');
 Route::post('/GantiUsernameOwner', 'OwnerController@GantiUsernameOwner');
 Route::post('/GantiPasswordOwner', 'OwnerController@GantiPasswordOwner');
 
+Route::get('/', ['middleware' => 'access-log', 'uses' => 'UserController@index']);
+Route::get('/wilayah', 'UserController@wilayah');
+Route::get('/tarif', 'UserController@tarif');
+Route::get('/kontak', 'UserController@kontak');

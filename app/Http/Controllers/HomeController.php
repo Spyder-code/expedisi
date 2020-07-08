@@ -10,6 +10,7 @@ use App\Chats;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/index');
+        $visitor = DB::table('access_logs')->count();
+        return view('admin/index',compact('visitor'));
     }
 
     public function layanan()
