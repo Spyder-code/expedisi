@@ -1,5 +1,15 @@
 @extends('layouts.admin')
 @section('content')
+@if (session('status'))
+        <div class='alert alert-success'>
+            {{ session('status') }}
+        </div>
+        @endif
+        @if (session('gagal'))
+        <div class='alert alert-danger'>
+            {{ session('gagal') }}
+        </div>
+        @endif
 <div class="row">
     <div class="col">
       @if (session('success'))
@@ -45,7 +55,7 @@
             <div class="row mt-5 mb-5 mr-5 ml-5">
                 <div class="col col-4">
                     <h4 class="card-title">Icon perusahaan</h4>
-                    <img src="{{asset('image/'.$perusahaan->logo)}}" class="img-thumbnail" alt="">
+                    <img src="{{asset('image/perusahaan/'.$perusahaan->logo)}}" class="img-thumbnail" alt="">
                     <button data-toggle="modal" data-target="#modalIcon" class="btn btn-sm btn-primary mt-2">Edit Icon <span class="mdi mdi-camera"></span></button>
                 </div>
                 <div class="col">
@@ -107,11 +117,12 @@
                </button>
             </div>
             <div class="modal-body">
-               <form action="" method="post">
+               <form action="{{url('GantiNama')}}" method="post">
                   @csrf
                   <div class="form-group">
                      <label for="">Masukan Nama Perusahaan Baru</label>
                      <input type="text" name="nama" class="form-control" autocomplete="off" required>
+                    <input type="hidden" name="id" value="{{$perusahaan->id}}">
                   </div>
                   <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
                </form>
@@ -131,12 +142,13 @@
                </button>
             </div>
             <div class="modal-body">
-               <form action="" method="post">
+               <form action="{{url('GantiAlamat')}}" method="post">
                   @csrf
                   <div class="form-group">
                      <label for="">Masukan Alamat Perusahaan Baru</label>
                      <textarea name="alamat" class="form-control" cols="30" rows="10" required></textarea>
                   </div>
+                  <input type="hidden" name="id" value="{{$perusahaan->id}}">
                   <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
                </form>
             </div>
@@ -155,11 +167,12 @@
                </button>
             </div>
             <div class="modal-body">
-               <form action="" method="post">
+               <form action="{{url('GantiNomor')}}" method="post">
                   @csrf
                   <div class="form-group">
                      <label for="">Masukan Nomor Perusahaan Baru</label>
                      <input type="number" name="nomor" class="form-control" required>
+                     <input type="hidden" name="id" value="{{$perusahaan->id}}">
                   </div>
                   <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
                </form>
@@ -179,11 +192,13 @@
                </button>
             </div>
             <div class="modal-body">
-               <form action="" method="post" enctype="multipart/form-data">
+               <form action="{{url('GantiIcon')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="oldImage" value="{{$perusahaan->logo}}">
                   @csrf
                   <div class="form-group">
                      <label for="iconInput" class="mb-4">Masukan Icon Perusahaan Baru</label>
                      <input type="file" name="image" id="iconInput" onchange="loadFile(event)" required>
+                     <input type="hidden" name="id" value="{{$perusahaan->id}}">
                      <img id="output" class="img-thumbnail mt-3" />
                      <script>
                      var loadFile = function(event) {

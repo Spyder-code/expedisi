@@ -20,16 +20,16 @@ class ExpeditionController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
-        // Expedition::create([
-        //     'nama' => $request->nama,
-        //     'harga' => $request->harga,
-        //     'dari' => $request->dari,
-        //     'tujuan' => $request->tujuan
+        //return $request;
+        Expedition::create([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'dari' => $request->dari,
+            'tujuan' => $request->tujuan
 
-        // ]);
+        ]);
 
-        // return redirect('/admin/expedisi')->with('status','Data Expedisi Berhasil Ditambahkan');
+        return redirect('/admin/expedisi')->with('status','Data Expedisi Berhasil Ditambahkan');
     }
 
     /**

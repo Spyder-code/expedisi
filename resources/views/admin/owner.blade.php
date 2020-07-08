@@ -67,7 +67,7 @@
        <div class="col mt-3">
         <h4>Ganti Username</h4>
         <hr>
-        <form  method="post" action="{{ url('/owner/profile/update') }}" enctype="multipart/form-data">
+        <form  method="post" action="{{ url('/GantiUsernameOwner') }}" enctype="multipart/form-data">
             @csrf
            <div class="form-group">
                <input type="text" name="username" class="form-control" required>
@@ -76,7 +76,7 @@
         </form>
            <h4>Foto Profil</h4>
            <hr>
-           <form  method="post" action="{{ url('/owner/profile/update') }}" enctype="multipart/form-data">
+           <form  method="post" action="{{ url('/GantiIconOwner') }}" enctype="multipart/form-data">
                @csrf
               <div class="form-group">
                   <label for="inputGambar" class="mb-4">Masukan gambar baru</label>
@@ -86,12 +86,13 @@
            </form>
            <h4 class="mt-5">Ganti Password</h4>
            <hr>
-           <form class="form-row" method="post" action="{{ url('/owner/profile/updatepassword') }}">
+           <form class="form-row" method="post" action="{{ url('/GantiPasswordOwner') }}">
                  @csrf
                  <div class="col">
                     <div class="form-group">
                        <label for="pass1">Old Password</label>
                        <input type="password" class="form-control" name="pass1" required>
+                    <input type="hidden" class="form-control" name="id" value="{{$owner->id}}">
                     </div>
                  </div>
                  <div class="col">
@@ -105,30 +106,6 @@
            <hr>
        </div>
 
-        <!-- Modal alamat-->
-        <div class="modal fade" id="modalAlamat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-           <div class="modal-dialog">
-           <div class="modal-content">
-              <div class="modal-header">
-                 <h5 class="modal-title" id="exampleModalLabel">Edit Alamat</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-                 </button>
-              </div>
-              <div class="modal-body">
-                 <form action="{{ url('/owner/profile/update') }}" method="post">
-                    @csrf
-                    <div class="form-group">
-                       <label for="inputAlamat">Masukan alamat owner baru</label>
-                       <textarea name="alamat" class="form-control" id="inputAlamat" cols="30" rows="10" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
-                 </form>
-              </div>
-           </div>
-           </div>
-        </div>
-
         <!-- Modal nomor-->
         <div class="modal fade" id="modalNomor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -140,11 +117,12 @@
                  </button>
               </div>
               <div class="modal-body">
-                 <form action="{{ url('/owner/profile/update') }}" method="post">
+                 <form action="{{ url('/GantiNomorOwner') }}" method="post">
                     @csrf
                     <div class="form-group">
                        <label for="inputNomor">Masukan nomor hp owner baru</label>
-                       <input type="number" id="inputNomor" name="nomor" class="form-control" required>
+                       <input type="number" id="inputNomor" name="nomor" class="form-control">
+                       <input type="hidden" id="id" name="id" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
                  </form>

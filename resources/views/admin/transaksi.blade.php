@@ -13,7 +13,7 @@
                                     
                                     <select name="expedisi" class="form-control" id="expedisi">
                                     @foreach($expedisi as $ex)
-                                        <option value="{{ $ex->nama }}">{{ $ex->nama }}</option>
+                                        <option data-harga="{{$ex->harga}}" value="{{ $ex->id }}">{{ $ex->nama }}</option>
                                     @endforeach
                                     </select>
                                     
@@ -56,9 +56,10 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col col-2">Nama Customer</div>
+                                <div class="col col-2">Harga</div>
                                 <div class="col">
-                                    <input type="text" name="customer" id="customer" class="form-control">
+                                       
+                                    <input type="text" name="harga" id="harga" class="form-control" readonly="">
                                 </div>
                             </div>
                         </div>
@@ -68,4 +69,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(function(){
+            $('#expedisi').change(function () { 
+                var a = $(this).find(':selected').attr('data-harga')
+
+                $('#berat').keyup(function (e) { 
+                var b = $(this).val();
+                    $('#harga').val(a*b);
+                    
+                });
+                
+            });
+            
+        });
+    </script>
 @endsection

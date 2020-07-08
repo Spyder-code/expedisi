@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect('admin/perusahaan');
+        return view('admin/index');
     }
 
     public function layanan()
@@ -66,8 +66,9 @@ class HomeController extends Controller
 
     public function pesan()
     {
-        return view('admin.pesan');
+        $chat = Chats::all();
+        return view('admin.pesan',['chat'=>$chat]);
     }
 
-    
+
 }

@@ -15,16 +15,27 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @if (session('status'))
+                            <div class='alert alert-success'>
+                                {{ session('status') }}
+                        @endif
+                    @foreach($chat as $cht)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Almi</td>
-                            <td>mayhem@yahoo.com</td>
-                            <td>Jcoba isi</td>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $cht->nama }}</td>
+                            <td>{{ $cht->email }}</td>
+                            <td>{{ $cht->isi }}</td>
                             <td>
-                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            <a href="{{ url('/admin/pesan/destroy/'.$cht->id) }}" class="btn btn-sm btn-danger text-white" 
+                            onclick="return confirm('apakah kamu yakin menghapus produk {{ $cht->nama }} ini?')">Hapus</a>
+                            <!-- <form action="{{ $cht->id }}" method="POST" class="d-inline">
+                                    @csrf
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('apakah kamu yakin menghapus layanan ini?')">Hapus</button>
+                            </form> -->
                                 <button class="btn btn-sm btn-primary">Balas</button>
                             </td>
                             </tr>
+                    @endforeach
                         </tbody>
                     </table>
                 </div>
