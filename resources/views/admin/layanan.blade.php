@@ -2,14 +2,20 @@
 @section('content')
     <div class="container">
         @if (session('status'))
-        <div class='alert alert-success'>
+            <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             {{ session('status') }}
-        </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
         @endif
         @if (session('gagal'))
-        <div class='alert alert-danger'>
+            <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
             {{ session('gagal') }}
-        </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
         @endif
         <div class="row">
             <div class="col col-sm-8">
@@ -23,7 +29,8 @@
                                 <p>{{ $lyn->deskripsi }}</p>
                                 <div class="card-footer d-inline" class="d-inline">
                                     <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ub-{{$lyn->id}}">Ubah</a>
-                                    <form action="{{ $lyn->id }}" method="POST" class="d-inline">
+                                    <form action="{{url('HapusLayanan')}}" method="POST" class="d-inline">
+                                        <input type="hidden" name="id" value="{{$lyn->id}}">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('apakah kamu yakin menghapus layanan ini?')">Hapus</button>
                                     </form>
@@ -38,7 +45,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Alamat</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data Layanan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -46,7 +53,7 @@
             <div class="modal-body">
                 <form action="{{url('updateLayanan')}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="{{$lyn->id}}">
-                    <input type="hidden" name="oldImage" value="{{$lyn->image}}">
+                    <input type="hidden" name="oldImage" value="{{asset('image/'.$lyn->image)}}">
                     @csrf
                     <div class="form-group">
                         <label for="">Nama layanan</label>

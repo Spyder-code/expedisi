@@ -1,31 +1,41 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Expedition;
+use App\Area;
 use Illuminate\Http\Request;
 
-class ExpeditionController extends Controller
+class AreaController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
-            'nama'  => 'required'
+            'expedisi'  => 'required',
+            'harga'  => 'required',
+            'dari'  => 'required',
+            'tujuan' => 'required'
          ]);
 
-        Expedition::create([
-            'nama' => $request->nama
+        Area::create([
+            'id_expedisi' => $request->expedisi,
+            'harga' => $request->harga,
+            'dari' => $request->dari,
+            'tujuan' => $request->tujuan
+
         ]);
 
         return redirect('/admin/expedisi')->with('status','Data Expedisi Berhasil Ditambahkan');
@@ -60,22 +70,33 @@ class ExpeditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function UpdateExpedisi(Request $request)
+    public function UpdateArea(Request $request)
     {
         $request->validate([
-            'nama'  => 'required'
+            'id_expedisi'  => 'required',
+            'harga'  => 'required',
+            'dari'  => 'required',
+            'tujuan' => 'required'
          ]);
 
-        Expedition::where('id',$request->id)
+        //  echo $request->id_expedisi;
+        //  echo $request->harga;
+        //  echo $request->dari;
+        //  echo $request->tujuan;
+
+        Area::where('id',$request->id)
                         ->update([
-                        'nama' => $request->nama
+                        'id_expedisi' => $request->id_expedisi,
+                        'harga' => $request->harga,
+                        'dari' => $request->dari,
+                        'tujuan' => $request->tujuan
                 ]);
         return redirect('admin/expedisi')->with('status','Data berhasil di ubah!');
     }
 
-    public function HapusExpedisi(Request $request)
+    public function HapusArea(Request $request)
     {
-        $data = Expedition::find($request->id);
+        $data = Area::find($request->id);
         $data->delete();
         //   return redirect('/admin/layanan')->with('status', 'Data berhasil dihapus');
         // Service::destroy($service->id);

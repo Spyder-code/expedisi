@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -32,9 +32,27 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function InputTransaksi(Request $request)
     {
-        //
+        $request->validate([
+            'expedisi'  => 'required',
+            'customer'  => 'required',
+            'barang'  => 'required',
+            'berat' => 'required',
+            'dari' => 'required',
+            'tujuan' => 'required',
+            'harga' => 'required'
+         ]);
+        Transaction::create([
+            'id_expedisi' => $request->expedisi,
+            'customer' => $request->customer,
+            'barang' => $request->barang,
+            'berat' => $request->berat,
+            'dari' => $request->dari,
+            'tujuan' => $request->tujuan,
+            'harga' => $request->harga
+        ]);
+        return redirect('/admin/transaksi')->with('status','Data Expedisi Berhasil Ditambahkan');
     }
 
     /**

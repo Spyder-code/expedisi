@@ -35,7 +35,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah expedisi</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$expedisi}}</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-cart-arrow-down fa-2x text-gray-300"></i>
@@ -54,7 +54,7 @@
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah transaksi</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"> </div>
+                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$transaksi}}</div>
                     </div>
                   </div>
                 </div>
@@ -163,7 +163,7 @@
 
 @endsection
 
-{{-- @section('custom-script')
+@section('custom-script')
 <script>
     $(document).ready(function() {
 
@@ -183,7 +183,7 @@
       let monthNov = 0;
       let monthDec = 0;
 
-      $.get( "{{ url('owner/dashboard/show') }}", function(response) {
+      $.get( "{{ url('/showMainDashboard') }}", function(response) {
         const data = JSON.parse(response);
         const currentYear = new Date().getFullYear();
         data.map((data) => {
@@ -356,4 +356,4 @@
       });
     });
 </script>
-@endsection --}}
+@endsection

@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class ChatsController extends Controller
 {
-    public function destroy($id)
+    public function HapusPesan(Request $request)
     {
-        $data = Chats::find($id);
+        $data = Chats::find($request->id);
         $data->delete();
-        return redirect('/admin/pesan')->with('status','Data Pesan Berhasil Dihapus');
+        return redirect('admin/pesan')->with('status','Pesan Berhasil Dihapus');
     }
-    
+
 }

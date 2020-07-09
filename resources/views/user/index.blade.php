@@ -17,9 +17,9 @@
                                 <div class="icon mr-2">
                                     <span class="flaticon-worldwide"></span>
                                 </div>
-                                <div class="desc text-left">
-                                  <strong class="number" data-number="800">0</strong>
-                                  <span>pulau</span>
+                                <div class="desc text-middle">
+                                <strong class="number" data-number="{{$jumlah_expedisi}}">0</strong>
+                                <span>Pulau</span>
                               </div>
                             </div>
                           </div>
@@ -48,7 +48,7 @@
                             <div class="form-group">
                               <div class="form-field">
                                 <div class="icon"><span class="icon-user"></span></div>
-                                <input type="text" class="form-control" placeholder="Berat Barang">
+                                <input type="text" class="form-control" name="berat" placeholder="Berat Barang">
                               </div>
                             </div>
                           </div>
@@ -57,12 +57,10 @@
                               <div class="form-field">
                                 <div class="select-wrap">
                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                  <select name="" id="" class="form-control">
-                                    <option value="">Satuan</option>
-                                    <option value="">Kilogram</option>
-                                    <option value="">Koli</option>
-                                    <option value="">Kubik</option>
-                                    <option value="">Ton</option>
+                                  <select name="satuan" id="" class="form-control">
+                                    <option selected="selected" disabled="disabled">Satuan</option>
+                                    <option value="kilogram">Kilogram</option>
+                                    <option value="Ton">Ton</option>
                                   </select>
                                 </div>
                               </div>
@@ -72,7 +70,7 @@
                             <div class="form-group">
                               <div class="form-field">
                                 <div class="icon"><span class="icon-map-marker"></span></div>
-                                <input type="text" class="form-control" placeholder="Lokasi Tujuan">
+                                <input type="text" class="form-control" name="tujuan" placeholder="Lokasi Tujuan">
                               </div>
                             </div>
                           </div>
@@ -81,10 +79,12 @@
                               <div class="form-field">
                                 <div class="select-wrap">
                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                  <select name="" id="" class="form-control">
-                                    <option value="">Kapal Pelni</option>
-                                    <option value="">Kapal Cargo</option>
-                                  </select>
+                                  <select class="form-control" name="expedisi" id="expedisi">
+                                    <option selected="selected" disabled="disabled">Expedisi</option>
+                                    @foreach($expedisi as $ex)
+                                    <option data-tujuan="{{$ex->tujuan}}" data-harga="{{$ex->harga}}" value="{{ $ex->nama }}">{{ $ex->nama }}</option>
+                                    @endforeach
+                                    </select>
                                 </div>
                               </div>
                             </div>
@@ -97,7 +97,7 @@
                             </div>
                           </div>
                         </div>
-                        <h1 class="text-center text-dark mt-3">Rp.100.000</h1>
+                        <h1 class="text-center text-dark mt-3"></h1>
                       </form>
                             </div>
                           </div>
@@ -156,18 +156,13 @@
         </div>
       </div>
       <div class="row">
+        @foreach ($expedisi as $ex)
           <div class="col-md-6 ftco-animate">
-              <ul class="category text-center">
-                  <li><a href="#">Provinsi Papua <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
-                  <li><a href="#">Provinsi Papua Barat<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
-              </ul>
+            <ul class="category text-center">
+                  <li><a href="#">{{$ex->nama}} <br><span class="number">200</span> <span>Wilayah</span><i class="ion-ios-arrow-forward"></i></a></li>
+            </ul>
           </div>
-          <div class="col-md-6 ftco-animate">
-              <ul class="category text-center">
-                  <li><a href="#">Provinsi Maluku Utara<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
-            <li><a href="#">Provinsi Maluku <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
-              </ul>
-          </div>
+          @endforeach
       </div>
       </div>
   </section>

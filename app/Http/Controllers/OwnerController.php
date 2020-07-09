@@ -79,42 +79,54 @@ class OwnerController extends Controller
                 ]);
                 if ($files = $request->file('image')) {
                     $profileImage = $files->getClientOriginalName();
-                    $files->move(public_path('image'), $profileImage);
+                    $files->move(public_path('image/owner/'), $profileImage);
                     $insert['image'] = "$profileImage";
                     User::where('id',$request->id)
                         ->update([
-                        'nama' => $request->nama,
-                        'deskripsi' => $request->deskripsi,
                         'image' =>  "$profileImage"
 
                 ]);
                 }
-            return redirect('admin/owner')->with('status','Data berhasil di ubah!');
+            return redirect('admin/owner')->with('status','Foto profil berhasil di ubah!');
         }
     }
     public function GantiUsernameOwner(Request $request)
     {
+        $request->validate([
+            'username'  => 'required'
+         ]);
         User::where('id',$request->id)
         ->update([
-        'name' => $request->nama
+        'name' => $request->username
         ]);
-        return redirect('admin/owner')->with('status','Data berhasil di ubah!');
+        return redirect('admin/owner')->with('status','Username berhasil di ubah!');
     }
     public function GantiNomorOwner(Request $request)
     {
-        //
+        $request->validate([
+            'nomor'  => 'required'
+         ]);
+        User::where('id',$request->id)
+        ->update([
+        'no_telp' => $request->nomor
+        ]);
+        return redirect('admin/owner')->with('status','Nomor berhasil di ubah!');
     }
     public function GantiPasswordOwner(Request $request)
     {
+        $request->validate([
+            'pass1'  => 'required',
+            'pass2'  => 'required'
+         ]);
         $password = Auth::user()->password;
         if(Hash::check($request->pass1, $password)){
             User::where('id',$request->id)
             ->update([
             'password' => Hash::make($request->pass2)
             ]);
-            return redirect('admin/owner')->with('status','Data berhasil di ubah!');
+            return redirect('admin/owner')->with('status','Password berhasil di ubah!');
         } else {
-            return redirect('admin/owner')->with('status','Data berhasil di ubah!');
+            return redirect('admin/owner')->with('gagal','Password gagal di ubah!');
         }
 
     }

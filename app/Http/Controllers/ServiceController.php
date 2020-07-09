@@ -39,7 +39,9 @@ class ServiceController extends Controller
         $request->validate([
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+            'nama'  => 'required',
+            'deskripsi'  => 'required'
+            ]);
         if ($files = $request->file('image')) {
             $profileImage = $files->getClientOriginalName();
             $files->move(public_path('image'), $profileImage);
@@ -52,7 +54,7 @@ class ServiceController extends Controller
             ]);
             return redirect('/admin/layanan')->with('status','Data Layanan Berhasil Ditambahkan');
          }
-         return redirect('/admin/layanan')->with('danger','Gagal');
+         return redirect('/admin/layanan')->with('gagal','Data Gagal Ditambahkan');
     }
 
     /**
@@ -95,9 +97,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function HapusLayanan(Request $request)
     {
-        $data = Service::find($id);
+        $data = Service::find($request->id);
         $data->delete();
         //   return redirect('/admin/layanan')->with('status', 'Data berhasil dihapus');
         // Service::destroy($service->id);
@@ -107,11 +109,14 @@ class ServiceController extends Controller
     public function updateLayanan(Request $request)
     {
         if (file_exists(public_path('image/',$request->oldImage))) {
+            $request->validate([
+                // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'nama'  => 'required',
+                'deskripsi'  => 'required'
+                 ]);
             File::delete(public_path('image/'.$request->oldImage));
-                $request->validate([
-                    // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                ]);
+
                 if ($files = $request->file('image')) {
                     $profileImage = $files->getClientOriginalName();
                     $files->move(public_path('image'), $profileImage);
@@ -125,6 +130,8 @@ class ServiceController extends Controller
                 ]);
                 }
             return redirect('admin/layanan')->with('status','Data berhasil di ubah!');
+        } else {
+            return redirect('admin/layanan')->with('gagal','Data gagal di ubah!');
         }
     }
 }

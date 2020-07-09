@@ -69,27 +69,39 @@ class CompanyController extends Controller
      */
     public function GantiNama(Request $request)
     {
+        $request->validate([
+            'nama'        => 'required'
+         ]);
+
         Company::where('id',$request->id)
                         ->update([
                         'nama' => $request->nama
                 ]);
-        return redirect('admin/perusahaan')->with('status','Data berhasil di ubah!');
+        return redirect('admin/perusahaan')->with('status','Nama berhasil di ubah!');
     }
     public function GantiAlamat(Request $request)
     {
+        $request->validate([
+            'alamat'        => 'required'
+         ]);
+
         Company::where('id',$request->id)
                         ->update([
                         'alamat' => $request->alamat
                 ]);
-        return redirect('admin/perusahaan')->with('status','Data berhasil di ubah!');
+        return redirect('admin/perusahaan')->with('status','Alamat berhasil di ubah!');
     }
     public function GantiNomor(Request $request)
     {
+        $request->validate([
+            'nomor'        => 'required'
+         ]);
+
         Company::where('id',$request->id)
                         ->update([
                         'nomor' => $request->nomor
                 ]);
-        return redirect('admin/perusahaan')->with('status','Data berhasil di ubah!');
+        return redirect('admin/perusahaan')->with('status','Nomor berhasil di ubah!');
     }
 
     public function GantiIcon(Request $request)
@@ -110,7 +122,7 @@ class CompanyController extends Controller
 
                 ]);
                 }
-            return redirect('admin/perusahaan')->with('status','Data berhasil di ubah!');
+            return redirect('admin/perusahaan')->with('status','Icon berhasil di ubah!');
 
         }
     }

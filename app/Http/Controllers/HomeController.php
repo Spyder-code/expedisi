@@ -8,6 +8,7 @@ use App\Transaction;
 use App\Service;
 use App\Chats;
 use App\User;
+use App\Area;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,8 +33,16 @@ class HomeController extends Controller
     public function index()
     {
         $visitor = DB::table('access_logs')->count();
-        return view('admin/index',compact('visitor'));
+        $transaksi = Transaction::all()->count();
+        $expedisi = Expedition::all()->count();
+        return view('admin.index', ['transaksi' => $transaksi, 'expedisi' => $expedisi, 'visitor' => $visitor]);
     }
+
+    public function showMainDashboard()
+   {
+      $aksesLog =  DB::table('access_logs')->orderBy('created_at', 'asc')->get();
+      echo json_encode($aksesLog);
+   }
 
     public function layanan()
     {
@@ -55,8 +64,9 @@ class HomeController extends Controller
 
     public function expedisi()
     {
+        $area = Area::all();
         $expedisi = Expedition::all();
-        return view('admin.expedisi', ['expedisi' => $expedisi]);
+        return view('admin.expedisi', ['expedisi' => $expedisi, 'area' => $area]);
     }
 
     public function transaksi()

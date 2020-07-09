@@ -1,14 +1,20 @@
 @extends('layouts.admin')
 @section('content')
-@if (session('status'))
-        <div class='alert alert-success'>
+        @if (session('status'))
+            <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             {{ session('status') }}
-        </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
         @endif
         @if (session('gagal'))
-        <div class='alert alert-danger'>
+            <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
             {{ session('gagal') }}
-        </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
         @endif
 <div class="row">
     <div class="col">

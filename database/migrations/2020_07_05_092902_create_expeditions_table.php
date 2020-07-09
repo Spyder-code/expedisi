@@ -16,9 +16,6 @@ class CreateExpeditionsTable extends Migration
         Schema::create('expeditions', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('harga');
-            $table->string('dari');
-            $table->string('tujuan');
             $table->timestamps();
         });
     }

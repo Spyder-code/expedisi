@@ -53,9 +53,11 @@
                   <h3 class="heading-sidebar">Hubungi kami</h3>
                   <form action="#" class="search-form mb-3">
                       <ul>
-                          <li><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                          <li><a href="#"><span class="text">+2 392 3929 210</span></a></li>
+                        @foreach ($perusahaan as $pr)
+                          <li><span class="text">{{$pr->alamat}}</span></li>
+                          <li><span class="text">{{$pr->nomor}}</span></a></li>
                           <li><a href="#"><span class="text">info@yourdomain.com</span></a></li>
+                        @endforeach
                         </ul>
               </div>
               <div class="sidebar-box bg-white p-4 ftco-animate">
