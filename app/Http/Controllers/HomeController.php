@@ -73,7 +73,8 @@ class HomeController extends Controller
     {
         $transaksi = Transaction::all();
         $expedisi = Expedition::all();
-        return view('admin.transaksi', ['transaksi' => $transaksi, 'expedisi' => $expedisi]);
+        $area = Area::all();
+        return view('admin.transaksi', ['transaksi' => $transaksi, 'expedisi' => $expedisi, 'area' => $area]);
     }
 
     public function pesan()

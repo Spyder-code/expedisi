@@ -29,7 +29,7 @@
                                     <select name="expedisi" class="form-control" id="expedisi">
                                         <option selected="selected" disabled="disabled"></option>
                                         @foreach($expedisi as $ex)
-                                        <option data-harga="{{$ex->harga}}" value="{{ $ex->id }}">{{ $ex->nama }}</option>
+                                        <option value="{{ $ex->id }}">{{ $ex->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -65,11 +65,12 @@
                                 </div>
                                 <div class="col">
                                     <label for="dari">Tujuan</label>
-                                    <select name="expedisi" class="form-control" id="expedisi">
+                                    <select name="tujuan" class="form-control" id="tujuan">
                                         <option selected="selected" disabled="disabled"></option>
-                                        @foreach($expedisi as $ex)
-                                        <option data-harga="{{$ex->harga}}" value="{{ $ex->id }}">{{ $ex->nama }}</option>
-                                        @endforeach
+                                        {{-- @foreach($area as $ar) --}}
+                                        <option value="">Select</option>
+                                        {{-- data-harga="{{$ar->harga}}" value="{{ $ar->id }}" --}}
+                                        {{-- @endforeach --}}
                                     </select>
                                 </div>
                             </div>
@@ -92,6 +93,15 @@
     <script>
         $(function(){
             $('#expedisi').change(function () {
+                var a = $area.find(':selected');
+                $('#tujuan').val(a);
+            });
+
+        });
+    </script>
+    {{-- <script>
+        $(function(){
+            $('#expedisi').change(function () {
                 var a = $(this).find(':selected').attr('data-harga')
 
                 $('#berat').keyup(function (e) {
@@ -103,5 +113,5 @@
             });
 
         });
-    </script>
+    </script> --}}
 @endsection
