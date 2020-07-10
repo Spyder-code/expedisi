@@ -15,8 +15,14 @@ class UserController extends Controller
     {
         $expedisi = Expedition::all();
         $perusahaan = Company::all();
-        $jumlah_expedisi = Expedition::all()->count();;
+        $jumlah_expedisi = Expedition::all()->count();
         return view('user.index', ['expedisi' => $expedisi, 'perusahaan' => $perusahaan, 'jumlah_expedisi' => $jumlah_expedisi]);
+    }
+
+    public function lacak()
+    {
+        $perusahaan = Company::all();
+        return view('user.lacak',compact('perusahaan'));
     }
 
     public function wilayah()

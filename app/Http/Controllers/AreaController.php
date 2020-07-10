@@ -47,9 +47,11 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getExpedisi(Request $request)
     {
-        //
+        $id = $request->id;
+        $data = Area::all()->where('id_expedisi',$id);
+        return response($data);
     }
 
     /**

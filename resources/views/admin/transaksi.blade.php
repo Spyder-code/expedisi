@@ -22,6 +22,7 @@
                 <div class="card">
                 <form action="{{url('InputTransaksi')}}" method="post" class="form mt-5 mb-5 mr-5 ml-5" method="post">
                         @csrf
+                        <input type="hidden" name="idExpedisi" id="idExpedisi">
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col col-2">Nama Expedisi</div>
@@ -37,22 +38,48 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col col-2">Nama Customer</div>
                                 <div class="col">
-                                    <input type="text" name="customer" id="customer" class="form-control">
+                                    <label for="Pengirim">Nama Pengirim</label>
+                                    <input type="text" name="pengirim" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="Pengirim">Alamat Pengirim</label>
+                                    <input type="text" name="alamatPengirim" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col">
+                                    <label for="Penerima">Nama Penerima</label>
+                                    <input type="text" name="penerima" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="Penerima">Alamat Penerima</label>
+                                    <input type="text" name="alamatPenerima" class="form-control">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col col-6">
                                     <label for="dari">Nama barang</label>
                                     <input type="text" name="barang" id="barang" class="form-control">
                                 </div>
-                                <div class="col">
-                                    <label for="dari">Berat /kg</label>
-                                    <input type="number" name="berat" id="berat" class="form-control">
+                                <div class="col col-3">
+                                    <label for="dari">Berat</label>
+                                    <input type="number" name="berat" id="berat" value="1" class="form-control">
+                                </div>
+                                <div class="col col-3">
+                                    <label for="dari">Satuan</label>
+                                    <select name="tujuan" class="form-control" id="satuan">
+                                        <option selected="selected" disabled="disabled"></option>
+                                        {{-- <option value="Kg">Kg</option>
+                                        <option value="Koly">Koly</option>
+                                        <option value="Ton">Ton</option>
+                                        <option value="Kontener">Container</option> --}}
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -61,16 +88,13 @@
                             <div class="form-row">
                                 <div class="col">
                                     <label for="dari">Dari</label>
-                                    <input type="text" name="dari" id="dari" class="form-control">
+                                    <input type="text" name="dari" value="Surabaya" id="dari" class="form-control">
                                 </div>
                                 <div class="col">
                                     <label for="dari">Tujuan</label>
                                     <select name="tujuan" class="form-control" id="tujuan">
-                                        <option selected="selected" disabled="disabled"></option>
-                                        {{-- @foreach($area as $ar) --}}
-                                        <option value="">Select</option>
-                                        {{-- data-harga="{{$ar->harga}}" value="{{ $ar->id }}" --}}
-                                        {{-- @endforeach --}}
+                                        <option value="Ambon">Ambon</option>
+                                        <option value="Papua">Papua</option>
                                     </select>
                                 </div>
                             </div>
@@ -91,14 +115,46 @@
     </div>
 
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $(function(){
             $('#expedisi').change(function () {
-                var a = $area.find(':selected');
-                $('#tujuan').val(a);
-            });
+                var id = $(this).find(":selected").val();
+                $('#idExpedisi').val(id);
+                $.ajax({
+                url:"{{url('getExpedisi')}}",
+                type:"POST",
+                data:{id:id},
+                success:function (data) {
+                    $('#satuan').empty();
+                    $("#satuan").append(new Option("","" ));
+                    $.each(data, function(index, value) {
+                        $("#satuan").append(new Option(value.berat, value.harga ));
+                    });
+                    $('#satuan').change(function () {
+                    var a = $(this).find(":selected").val();
+                    var berat = $('#berat').val();
+                    $('#harga').val(a*berat);
+                    $('#berat').keyup(function () {
+                    var b = $(this).val();
+                    console.log(b);
+                    $('#harga').val(a*b);
+                    });
 
-        });
+                    });
+                }
+            })
+
+    });
+
+            });
     </script>
+
+
     {{-- <script>
         $(function(){
             $('#expedisi').change(function () {

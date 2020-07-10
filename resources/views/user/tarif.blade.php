@@ -19,48 +19,58 @@
 
     <form action="{{url('CekTarif')}}" method="post" class="p-5 bg-white">
             @csrf
+    <div class="form-group">
+        <div class="form-row">
+            <div class="col col-2">Nama Expedisi</div>
+            <div class="col">
+                <select name="expedisi" class="form-control" id="expedisi">
+                    <option selected="selected" disabled="disabled"></option>
+                    @foreach($expedisi as $ex)
+                    <option value="{{ $ex->id }}">{{ $ex->nama }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
       <div class="row">
         <div class="col">
           <div class="form-group">
             <label for="exampleFormControlInput1">Berat Barang</label>
-            <input type="text" name="berat" class="form-control" id="exampleFormControlInput1">
+            <input type="number" name="berat" value="1" class="form-control" id="berat">
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleFormControlSelect1">Satuan</label>
-            <select class="form-control" name="satuan" id="exampleFormControlSelect1">
-              <option selected="selected" disabled="disabled"></option>
-              <option value="kilogram">Kilogram</option>
-              <option value="Ton">Ton</option>
+            <select class="form-control" name="satuan" id="satuan">
+                <option selected="selected" disabled="disabled"></option>
             </select>
           </div>
         </div>
       </div>
 
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Expedisi</label>
-            <select class="form-control" name="expedisi" id="expedisi">
-            <option selected="selected" disabled="disabled"></option>
-            @foreach($expedisi as $ex)
-            <option data-tujuan="{{$ex->tujuan}}" data-harga="{{$ex->harga}}" value="{{ $ex->nama }}">{{ $ex->nama }}</option>
-            @endforeach
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1"><span class="icon-map-marker"></span> Lokasi Tujuan</label>
-            <input type="text" class="form-control" id="tujuan" name="tujuan" readonly="" value="Tujuan">
-            <input type="hidden" name="harga" id="harga" class="form-control" readonly="" value="Harga">
-        </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="dari">Dari</label>
+                        <input type="text" name="dari" value="Surabaya" id="dari" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="dari">Tujuan</label>
+                        <select name="tujuan" class="form-control" id="tujuan">
+                            <option value="Ambon">Ambon</option>
+                            <option value="Papua">Papua</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
               <div class="row form-group">
                 <div class="col-md-12 mt-3">
-                  <input type="submit" value="CEK TARIF" class="btn btn-primary  btn-lg  py-2 px-5">
+                  <input type="button" id="hitung" value="CEK TARIF" class="btn btn-primary  btn-lg  py-2 px-5">
                 </div>
               </div>
-
-
+              <h1 class="text-center" id="harga"></h1>
             </form>
-
           </div>
 
 
@@ -81,19 +91,38 @@
       </div>
     </section>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $(function(){
             $('#expedisi').change(function () {
-                var a = $(this).find(':selected').attr('data-tujuan')
-                    $('#tujuan').val(a);
+                var id = $(this).find(":selected").val();
+                $('#idExpedisi').val(id);
+                $.ajax({
+                url:"{{url('getExpedisi')}}",
+                type:"POST",
+                data:{id:id},
+                success:function (data) {
+                    $('#satuan').empty();
+                    $("#satuan").append(new Option("","" ));
+                    $.each(data, function(index, value) {
+                        $("#satuan").append(new Option(value.berat, value.harga ));
+                    });
+                    $('#hitung').click(function (e) {
+                        e.preventDefault();
+                        var a = $('#satuan').find(":selected").val();
+                        var berat = $('#berat').val();
+                        $('#harga').html("Rp. "+a*berat);
+                    });
+                }
+            })
+
+    });
+
             });
-        });
     </script>
-    {{-- <script>
-        $(function(){
-            $('#expedisi').change(function () {
-                var a = $(this).find(':selected').attr('data-harga')
-                    $('#harga').val(a);
-            });
-        });
-    </script> --}}
+
 @endsection

@@ -36,23 +36,29 @@ class TransactionController extends Controller
     {
         $request->validate([
             'expedisi'  => 'required',
-            'customer'  => 'required',
+            'pengirim'  => 'required',
             'barang'  => 'required',
             'berat' => 'required',
             'dari' => 'required',
             'tujuan' => 'required',
             'harga' => 'required'
          ]);
+         mt_srand(10);
         Transaction::create([
-            'id_expedisi' => $request->expedisi,
-            'customer' => $request->customer,
+            'id_expedisi' => $request->idExpedisi,
+            'pengirim' => $request->pengirim,
+            'penerima' => $request->penerima,
+            'alamat_pengirim' => $request->alamatPengirim,
+            'alamat_penerima' => $request->alamatPenerima,
             'barang' => $request->barang,
             'berat' => $request->berat,
             'dari' => $request->dari,
             'tujuan' => $request->tujuan,
-            'harga' => $request->harga
+            'harga' => $request->harga,
+            'status' => 0,
+            'kode' => mt_rand()
         ]);
-        return redirect('/admin/transaksi')->with('status','Data Expedisi Berhasil Ditambahkan');
+        return redirect('/admin/transaksi')->with('status','Data Transaksi berhasil ditambahkan!');
     }
 
     /**

@@ -4,6 +4,7 @@
     <title>Rizalgo expedisi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
 
@@ -29,7 +30,7 @@
          <!--=== FontAwesome CSS ===-->
     <link href="{{asset('fontawesome/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{asset('fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
-
+    <script src="{{asset('user/js/jquery.min.js')}}"></script>
   </head>
   <body>
 
@@ -43,7 +44,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 				<li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="{{url('/wilayah')}}" class="nav-link">Wilayah</a></li>
+				<li class="nav-item"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
 				<li class="nav-item"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
 				<li class="nav-item"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
 	        </ul>
@@ -110,7 +111,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="{{asset('user/js/jquery.min.js')}}"></script>
+
   <script src="{{asset('user/js/jquery-migrate-3.0.1.min.js')}}"></script>
   <script src="{{asset('user/js/popper.min.js')}}"></script>
   <script src="{{asset('user/js/bootstrap.min.js')}}"></script>

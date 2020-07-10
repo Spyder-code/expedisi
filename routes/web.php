@@ -45,6 +45,7 @@ Route::post('/HapusExpedisi', 'ExpeditionController@HapusExpedisi');
 Route::post('/UpdateExpedisi', 'ExpeditionController@UpdateExpedisi');
 Route::post('/HapusArea', 'AreaController@HapusArea');
 Route::post('/UpdateArea', 'AreaController@UpdateArea');
+Route::post('/getExpedisi', 'AreaController@getExpedisi');
 
 
 
@@ -52,7 +53,7 @@ Route::post('/UpdateArea', 'AreaController@UpdateArea');
 
 
 Route::get('/', ['middleware' => 'access-log', 'uses' => 'UserController@index']);
-Route::get('/wilayah', 'UserController@wilayah');
+Route::get('/lacak', 'UserController@lacak');
 Route::get('/tarif', 'UserController@tarif');
 Route::get('/kontak', 'UserController@kontak');
 Route::post('/MasukPesan', 'UserController@MasukPesan');

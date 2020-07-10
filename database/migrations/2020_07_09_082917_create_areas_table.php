@@ -18,6 +18,7 @@ class CreateAreasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_expedisi');
             $table->integer('harga');
+            $table->string('berat');
             $table->string('dari');
             $table->string('tujuan');
             $table->timestamps();
