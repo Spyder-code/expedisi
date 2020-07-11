@@ -41,6 +41,16 @@ class HomeController extends Controller
     public function showMainDashboard()
    {
       $aksesLog =  DB::table('access_logs')->orderBy('created_at', 'asc')->get();
+    //   $aksesLog2 =  DB::table('transactions')->orderBy('created_at', 'asc')->get();
+      $a = json_encode($aksesLog);
+    //   $b = json_encode($aksesLog2);
+      echo $a;
+    //   echo $b;
+   }
+
+   public function showMainDashboard2()
+   {
+      $aksesLog =  DB::table('transactions')->orderBy('created_at', 'asc')->get();
       echo json_encode($aksesLog);
    }
 
