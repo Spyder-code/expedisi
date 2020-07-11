@@ -158,52 +158,27 @@ transition: 1s ease;
       </div>
   </section>
 
-<section class="ftco-section">
-    <div class="container-fluid">
+  <section class="ftco-section">
+    <div class="container">
         <div class="row justify-content-center mb-5">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-0">Wilayah Expedisi Ambon</h2>
-                <div class="row text-center mt-3">
-                    <div class="col">
-                        <img class="img-fluid" src="{{asset('image/pelabuhan.jpg')}}" class="img-thumbnail" style="height: 200px; width:400px" alt="Card image cap">
-                        <h4 class="text-dark mt-1 mb-3">Pelabuhan Yos Sudarso</h4>
-                    </div>
-                    <div class="col">
-                        <img class="img-fluid" src="{{asset('image/bandara.jpg')}}" class="img-thumbnail" style="height: 200px; width:400px" alt="Card image cap">
-                        <h4 class="text-dark mt-1 mb-3">Bandara Pattimura Ambon</h4>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h2 class="mb-0">Wilayah Expedisi</h2>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 ftco-animate">
+            <ul class="category text-center">
+                <li><a href="#">Provinsi Papua <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
+                <li><a href="#">Provinsi Papua Barat<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
+            </ul>
         </div>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-8 heading-section text-center ftco-animate">
-                <h2 class="mb-0">Dokumentasi Ekspedisi</h2>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="gallery color" id="gallery">
-                            <div class="mb-3 pics animation all 2">
-                                <img class="img-fluid" src="{{asset('image/p5.jpg')}}" alt="Card image cap">
-                            </div>
-                            <div class="mb-3 pics animation all 2">
-                                <img class="img-fluid" src="{{asset('image/m1.jpg')}}" alt="Card image cap">
-                            </div>
-                            <div class="mb-3 pics animation all 1">
-                                <img class="img-fluid" src="{{asset('image/p4.jpg')}}" alt="Card image cap">
-                            </div>
-                            <div class="mb-3 pics animation all 2">
-                                <img class="img-fluid" src="{{asset('image/p7.jpg')}}" alt="Card image cap">
-                            </div>
-                            <div class="mb-3 pics animation all 1">
-                                <img class="img-fluid" src="{{asset('image/p1.jpg')}}" alt="Card image cap">
-                            </div>
-                            <div class="mb-3 pics animation all 1">
-                                <img class="img-fluid" src="{{asset('image/p2.jpg')}}" alt="Card image cap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-6 ftco-animate">
+            <ul class="category text-center">
+                <li><a href="#">Provinsi Maluku Utara<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
+          <li><a href="#">Provinsi Maluku <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
+            </ul>
         </div>
+    </div>
     </div>
 </section>
 
@@ -241,6 +216,37 @@ transition: 1s ease;
     </div>
   </section>
 
+<div class="container">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8 heading-section text-center ftco-animate">
+            <h2 class="mb-0">Dokumentasi Ekspedisi</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="gallery color" id="gallery">
+                        <div class="mb-3 pics animation all 2">
+                            <img class="img-fluid" src="{{asset('image/p5.jpg')}}" alt="Card image cap">
+                        </div>
+                        <div class="mb-3 pics animation all 2">
+                            <img class="img-fluid" src="{{asset('image/m1.jpg')}}" alt="Card image cap">
+                        </div>
+                        <div class="mb-3 pics animation all 1">
+                            <img class="img-fluid" src="{{asset('image/p4.jpg')}}" alt="Card image cap">
+                        </div>
+                        <div class="mb-3 pics animation all 2">
+                            <img class="img-fluid" src="{{asset('image/p7.jpg')}}" alt="Card image cap">
+                        </div>
+                        <div class="mb-3 pics animation all 1">
+                            <img class="img-fluid" src="{{asset('image/p1.jpg')}}" alt="Card image cap">
+                        </div>
+                        <div class="mb-3 pics animation all 1">
+                            <img class="img-fluid" src="{{asset('image/p2.jpg')}}" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
   <script>
       $.ajaxSetup({

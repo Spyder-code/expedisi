@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
-
+    <link rel="icon" href="{{asset('image/logo.png')}}" type="image/png">
     <link rel="stylesheet" href="{{asset('css/aos.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
@@ -36,7 +36,9 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container-fluid px-md-4	">
-	      <a class="navbar-brand" href="index.html">Rizalgo Ekspedisi</a>
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="{{asset('image/logo.png')}}" alt="">
+        </a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
