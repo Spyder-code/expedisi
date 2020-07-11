@@ -45,10 +45,14 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
-				<li class="nav-item"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
-				<li class="nav-item"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
+				{{-- <li class="{{Route::is('/')? 'active' :''}}"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+				<li class="{{Route::is('/lacak')? 'active' :''}}"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
+				<li class="{{Route::is('/tarif')? 'active' :''}}"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
+                <li class="{{Route::is('/kontak')? 'active' :''}}"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li> --}}
+                <li class="@yield('Home')"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+				<li class="@yield('Lacak')"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
+				<li class="@yield('Tarif')"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
+				<li class="@yield('Kontak')"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -64,7 +68,7 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Tentang kami</h2>
               <h2 class="ftco-heading-2">Rizalgo Expedisi</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Pengiriman cepat dan aman, Door to Door, Tarif expedisi murah</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -76,7 +80,8 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Lokasi</h2>
               <p>Dibawah ini akan ada map lokasi kantor.</p>
-                <img src="../assets/img/Studioku.png" class="rounded-circle mr-sm-2 mb-4" style="width: 250px; height: 150px;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0320804364733!2d112.70214129675121!3d-7.237180430477901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ff8433e03503%3A0x8ee50aa3f9b8acbe!2sDepo%20Temas!5e0!3m2!1sid!2sid!4v1594472572352!5m2!1sid!2sid" width="250" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                {{-- <img src="../assets/img/Studioku.png" class="rounded-circle mr-sm-2 mb-4" style="width: 250px; height: 150px;"> --}}
             </div>
           </div>
           <div class="col-md">
@@ -84,9 +89,11 @@
             	<h2 class="ftco-heading-2">Hubungi kami</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                    @foreach ($perusahaan as $pr)
+	                <li><span class="icon icon-map-marker"></span><span class="text">{{$pr->alamat}}</span></li>
+	                <li><span class="icon icon-phone"></span><span class="text">{{$pr->nomor}}</span></a></li>
+                    <li><span class="icon icon-envelope"></span><span class="text">info@rizalgo.com</span></a></li>
+                    @endforeach
 	              </ul>
 	            </div>
             </div>
@@ -126,6 +133,11 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="{{asset('js/main-user.js')}}"></script>
-
+  <script>
+      $("ul li").on("click", function () {
+          $("li").removeClass("active");
+          $(this).addClass("active");
+      });
+  </script>
   </body>
 </html>

@@ -30,6 +30,7 @@ Route::get('/showMainDashboard2', 'HomeController@showMainDashboard2');
 Route::get('/admin/transaksi', 'HomeController@transaksi');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get('/DetailLaporan', 'HomeController@detaillaporan');
 Route::post('/admin/expedisi', 'ExpeditionController@store');
 Route::post('/admin/layanan', 'ServiceController@store');
 Route::post('/admin/area', 'AreaController@store');
@@ -49,6 +50,7 @@ Route::post('/HapusExpedisi', 'ExpeditionController@HapusExpedisi');
 Route::post('/UpdateExpedisi', 'ExpeditionController@UpdateExpedisi');
 Route::post('/HapusArea', 'AreaController@HapusArea');
 Route::post('/UpdateArea', 'AreaController@UpdateArea');
+Route::post('/EditLaporan', 'HomeController@EditLaporan');
 Route::post('/getExpedisi', 'AreaController@getExpedisi');
 
 Route::get('/TampilLacak', 'UserController@tampillacak');

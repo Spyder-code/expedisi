@@ -1,4 +1,5 @@
 @extends('layouts.user')
+@section('Kontak', 'nav-item active')
 @section('content')
 <div class="hero-wrap hero-wrap-2" style="background-image: url('images/kontak.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
@@ -21,13 +22,13 @@
         </div>
         <div class="w-100"></div>
         <div class="col-md-3">
-          <p><span>Alamat:</span>{{$pr->alamat}}</p>
+          <p><span>Alamat: </span>{{$pr->alamat}}</p>
         </div>
         <div class="col-md-3">
-          <p><span>Telefon:</span>{{$pr->nomor}}</p>
+          <p><span>Telefon: </span>{{$pr->nomor}}</p>
         </div>
         <div class="col-md-3">
-          <p><span>Website</span> <a href="#">yoursite.com</a></p>
+          <p><span>Website: </span>info@rizalgo.com</a></p>
         </div>
         @endforeach
       </div>
@@ -61,9 +62,13 @@
         </div>
 
         <div class="col-md-6 d-flex">
-            <div id="map" class="bg-white"></div>
+            <div id="map" class="bg-white">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0320804364733!2d112.70214129675121!3d-7.237180430477901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ff8433e03503%3A0x8ee50aa3f9b8acbe!2sDepo%20Temas!5e0!3m2!1sid!2sid!4v1594472572352!5m2!1sid!2sid" width="550" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
         </div>
       </div>
     </div>
+
+
   </section>
 @endsection

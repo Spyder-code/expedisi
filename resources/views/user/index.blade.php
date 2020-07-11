@@ -1,4 +1,5 @@
 @extends('layouts.user')
+@section('Home', 'nav-item active')
 @section('content')
 <style>
     .gallery {

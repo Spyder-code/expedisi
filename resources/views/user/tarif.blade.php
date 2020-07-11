@@ -1,4 +1,5 @@
 @extends('layouts.user')
+@section('Tarif', 'nav-item active')
 @section('content')
 <div class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('image/sea.gif')}}');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>

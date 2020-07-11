@@ -88,6 +88,12 @@ class HomeController extends Controller
         return view('admin.area', ['expedisi' => $expedisi, 'area' => $area]);
     }
 
+    public function detaillaporan(Request $request)
+    {
+            $data_laporan = Transaction::where('id','LIKE',$request->id)->get();
+            return view('admin.detaillaporan', ['data_laporan' => $data_laporan]);
+    }
+
     public function transaksi()
     {
         $transaksi = Transaction::all();
@@ -110,6 +116,28 @@ class HomeController extends Controller
                     ->select('transactions.*','expeditions.nama as nama_expedisi')
                     ->paginate(10);
         return view('admin.laporan',compact('transaksi'));
+    }
+
+    public function EditLaporan(Request $request)
+    {
+            $request->validate([
+                'pengirim' => 'required',
+                'barang'  => 'required',
+                'alamat_penerima'  => 'required',
+                'status'  => 'required',
+                'kode'  => 'required'
+                 ]);
+
+            Transaction::where('id',$request->id)
+                        ->update([
+                        'pengirim' => $request->pengirim,
+                        'barang' => $request->barang,
+                        'alamat_penerima' => $request->alamat_penerima,
+                        'status' => $request->status,
+                        'kode' => $request->kode,
+                ]);
+            return redirect('/admin/laporanTransaksi')->with('status','Data berhasil di ubah!');
+
     }
 
 }
