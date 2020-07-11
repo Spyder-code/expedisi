@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
-    protected $fillable = ['id_expedisi','harga','dari','tujuan'];
+    protected $fillable = ['id_expedisi','harga','dari','tujuan','berat'];
 }

@@ -13,7 +13,7 @@
             <form class="subscribe-form"  method="get" action="/TampilLacak">
                 <div class="form-group d-flex">
                   @csrf
-                  <input type="text" class="form-control" name="cari" placeholder="Masukkan kode kiriman">
+                  <input type="text" class="form-control text-center" name="cari" placeholder="Masukkan kode kiriman">
                   <input type="submit" value="TRACKING" class="submit px-3">
                   {{-- <button type="submit" value="TRACKING" class="submit px-3"> --}}
                 </div>
@@ -61,7 +61,7 @@
                                       <h5>Tanggal Kirim</h5>
                                   </div>
                                   <div class="col">
-                                      <h5>{{$dtl->created_at}}</h5>
+                                      <h5>{{date('d F Y, H:m:s', strtotime($dtl->created_at))}}</h5>
                                   </div>
                               </div>
                               <div class="row">
@@ -117,21 +117,35 @@
                                   <tr class="text-center">
                                     <th scope="col">#</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Lokasi</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Keterangan</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Manifest serah</td>
-                                    <td>Blitar76889</td>
-                                    <td>2020-07-26 12:22:21</td>
-                                    <td>Kantor Tujuan :solo 7629</td>
-                                  </tr>
-
-
+                                    @foreach ($data_lacak as $item)
+                                    <tr>
+                                        <th scope="row">{{$loop->iteration}}</th>
+                                        <td>
+                                            @if ($item->status==0)
+                                            <span class="text-warning"><i class="fa fa-list" aria-hidden="true"></i> Sortir </span>
+                                            @elseif ($item->status==1)
+                                            <span class="text-primary"><i class="fa fa-truck" aria-hidden="true"></i> Shipping Progress</span>
+                                            @else
+                                            <span class="text-success"><i class="fa fa-check" aria-hidden="true"></i> Receive on Destination </span>
+                                            @endif
+                                        </td>
+                                        <td>{{date('d F Y, H:m:s', strtotime($item->updated_at))}}</td>
+                                        <td>
+                                            @if ($item->status==0)
+                                            <span class="text-dark">Sortir barang dan pemberian label</span>
+                                            @elseif ($item->status==1)
+                                            <span class="text-dark">Proses pengiriman barang</span>
+                                            @else
+                                            <span class="text-dark">Barang sampai tujuan</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
                               </table>
                           </div>

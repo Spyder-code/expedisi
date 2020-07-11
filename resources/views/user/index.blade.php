@@ -1,5 +1,52 @@
 @extends('layouts.user')
 @section('content')
+<style>
+    .gallery {
+-webkit-column-count: 3;
+-moz-column-count: 3;
+column-count: 3;
+-webkit-column-width: 33%;
+-moz-column-width: 33%;
+column-width: 33%; }
+.gallery .pics {
+-webkit-transition: all 350ms ease;
+transition: all 350ms ease; }
+.gallery .animation {
+-webkit-transform: scale(1);
+-ms-transform: scale(1);
+transform: scale(1); }
+
+@media (max-width: 450px) {
+.gallery {
+-webkit-column-count: 1;
+-moz-column-count: 1;
+column-count: 1;
+-webkit-column-width: 100%;
+-moz-column-width: 100%;
+column-width: 100%;
+}
+}
+
+@media (max-width: 400px) {
+.btn.filter {
+padding-left: 1.1rem;
+padding-right: 1.1rem;
+}
+}
+.color img{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-webkit-transition: all 1s ease;
+}
+
+.color img:hover{
+filter: grayscale(0%);
+filter: gray;
+-webkit-filter: grayscale(0%);
+filter: none;
+transition: 1s ease;
+}
+  </style>
 <div class="hero-wrap img" style="background-image: url({{asset('image/home.gif')}});">
     <div class="overlay"></div>
     <div class="container">
@@ -55,7 +102,6 @@
                                 <div class="icon"><span class="icon-map-marker"></span></div>
                                 <select name="berat" id="satuan" class="form-control">
                                     <option selected="selected" disabled="disabled">Satuan</option>
-                                    <option value="">Container</option>
                                 </select>
                               </div>
                             </div>
@@ -112,20 +158,54 @@
       </div>
   </section>
 
-  <section class="ftco-section">
-      <div class="container">
-          <div class="row justify-content-center mb-5">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <h2 class="mb-0">Wilayah Expedisi Ambon</h2>
+<section class="ftco-section">
+    <div class="container-fluid">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-0">Wilayah Expedisi Ambon</h2>
+                <div class="row text-center mt-3">
+                    <div class="col">
+                        <img class="img-fluid" src="{{asset('image/pelabuhan.jpg')}}" class="img-thumbnail" style="height: 200px; width:400px" alt="Card image cap">
+                        <h4 class="text-dark mt-1 mb-3">Pelabuhan Yos Sudarso</h4>
+                    </div>
+                    <div class="col">
+                        <img class="img-fluid" src="{{asset('image/bandara.jpg')}}" class="img-thumbnail" style="height: 200px; width:400px" alt="Card image cap">
+                        <h4 class="text-dark mt-1 mb-3">Bandara Pattimura Ambon</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-          <div class="col-md-6 ftco-animate">
-
-          </div>
-      </div>
-      </div>
-  </section>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8 heading-section text-center ftco-animate">
+                <h2 class="mb-0">Dokumentasi Ekspedisi</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="gallery color" id="gallery">
+                            <div class="mb-3 pics animation all 2">
+                                <img class="img-fluid" src="{{asset('image/p5.jpg')}}" alt="Card image cap">
+                            </div>
+                            <div class="mb-3 pics animation all 2">
+                                <img class="img-fluid" src="{{asset('image/m1.jpg')}}" alt="Card image cap">
+                            </div>
+                            <div class="mb-3 pics animation all 1">
+                                <img class="img-fluid" src="{{asset('image/p4.jpg')}}" alt="Card image cap">
+                            </div>
+                            <div class="mb-3 pics animation all 2">
+                                <img class="img-fluid" src="{{asset('image/p7.jpg')}}" alt="Card image cap">
+                            </div>
+                            <div class="mb-3 pics animation all 1">
+                                <img class="img-fluid" src="{{asset('image/p1.jpg')}}" alt="Card image cap">
+                            </div>
+                            <div class="mb-3 pics animation all 1">
+                                <img class="img-fluid" src="{{asset('image/p2.jpg')}}" alt="Card image cap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
   <section class="ftco-section services-section">
     <div class="container">
@@ -171,7 +251,6 @@
 
             $('#expedisi').change(function () {
                 var id = $(this).find(":selected").val();
-                $('#idExpedisi').val(id);
                 $.ajax({
                 url:"{{url('getExpedisi')}}",
                 type:"POST",
@@ -193,7 +272,5 @@
             })
 
     });
-
-            });
   </script>
 @endsection

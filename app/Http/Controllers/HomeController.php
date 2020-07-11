@@ -64,9 +64,18 @@ class HomeController extends Controller
 
     public function expedisi()
     {
-        $area = Area::all();
         $expedisi = Expedition::all();
-        return view('admin.expedisi', ['expedisi' => $expedisi, 'area' => $area]);
+        return view('admin.expedisi', ['expedisi' => $expedisi]);
+    }
+
+    public function area()
+    {
+        $expedisi = Expedition::all();
+        $area = DB::table('areas')
+                ->join('expeditions','expeditions.id','=','areas.id_expedisi')
+                ->select('areas.*','expeditions.nama')
+                ->paginate(10);
+        return view('admin.area', ['expedisi' => $expedisi, 'area' => $area]);
     }
 
     public function transaksi()
@@ -83,5 +92,14 @@ class HomeController extends Controller
         return view('admin.pesan',['chat'=>$chat]);
     }
 
+    public function laporan()
+    {
+        $transaksi = DB::table('transactions')
+                    ->join('areas','areas.id','=','transactions.id_expedisi')
+                    ->join('expeditions','expeditions.id','=','areas.id_expedisi')
+                    ->select('transactions.*','expeditions.nama as nama_expedisi')
+                    ->paginate(10);
+        return view('admin.laporan',compact('transaksi'));
+    }
 
 }

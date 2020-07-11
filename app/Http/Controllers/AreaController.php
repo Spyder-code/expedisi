@@ -27,6 +27,7 @@ class AreaController extends Controller
             'expedisi'  => 'required',
             'harga'  => 'required',
             'dari'  => 'required',
+            'berat' => 'required',
             'tujuan' => 'required'
          ]);
 
@@ -34,11 +35,12 @@ class AreaController extends Controller
             'id_expedisi' => $request->expedisi,
             'harga' => $request->harga,
             'dari' => $request->dari,
-            'tujuan' => $request->tujuan
+            'tujuan' => $request->tujuan,
+            'berat' => $request->berat,
 
         ]);
 
-        return redirect('/admin/expedisi')->with('status','Data Expedisi Berhasil Ditambahkan');
+        return redirect('/admin/area')->with('status','Data Expedisi Berhasil Ditambahkan');
     }
 
     /**
@@ -75,10 +77,10 @@ class AreaController extends Controller
     public function UpdateArea(Request $request)
     {
         $request->validate([
-            'id_expedisi'  => 'required',
             'harga'  => 'required',
             'dari'  => 'required',
-            'tujuan' => 'required'
+            'tujuan' => 'required',
+            'berat' => 'required',
          ]);
 
         //  echo $request->id_expedisi;
@@ -88,12 +90,12 @@ class AreaController extends Controller
 
         Area::where('id',$request->id)
                         ->update([
-                        'id_expedisi' => $request->id_expedisi,
                         'harga' => $request->harga,
                         'dari' => $request->dari,
-                        'tujuan' => $request->tujuan
+                        'tujuan' => $request->tujuan,
+                        'berat' => $request->berat,
                 ]);
-        return redirect('admin/expedisi')->with('status','Data berhasil di ubah!');
+        return redirect('admin/area')->with('status','Data berhasil di ubah!');
     }
 
     public function HapusArea(Request $request)
@@ -102,7 +104,7 @@ class AreaController extends Controller
         $data->delete();
         //   return redirect('/admin/layanan')->with('status', 'Data berhasil dihapus');
         // Service::destroy($service->id);
-        return redirect('/admin/expedisi')->with('status','Data Expedisi Berhasil Dihapus');
+        return redirect('/admin/area')->with('status','Data Expedisi Berhasil Dihapus');
     }
 
     /**
