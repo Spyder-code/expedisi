@@ -7,6 +7,7 @@ use App\Transaction;
 use App\Service;
 use App\Chats;
 use App\User;
+use App\Area;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -83,4 +84,14 @@ class UserController extends Controller
         return view('user.tampiltarif', ['expedisi' => $expedisi, 'perusahaan' => $perusahaan, 'Cekberat' => $Cekberat,
         'Ceksatuan' => $Ceksatuan, 'Cekexpedisi' => $Cekexpedisi,'Cektujuan' => $Cektujuan,'Cekharga' => $Cekharga]);
     }
+
+    public function tampillacak(Request $request)
+    {
+        if ($request->has('cari')) {
+            $perusahaan = Company::all();
+            $data_lacak = Transaction::where('kode','LIKE',$request->cari)->get();
+            return view('user.tampillacak', ['data_lacak' => $data_lacak, 'perusahaan' => $perusahaan]);
+        }
+    }
 }
+

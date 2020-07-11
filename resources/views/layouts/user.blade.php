@@ -82,11 +82,11 @@
             	<h2 class="ftco-heading-2">Hubungi kami</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-                @foreach ($perusahaan as $pr)
+                {{-- @foreach ($perusahaan as $pr)
                   <li><span class="icon icon-map-marker"></span><span class="text">{{$pr->alamat}}</span></li>
                   <li><span class="icon icon-phone"></span><span class="text">{{$pr->nomor}}</span></a></li>
                   <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                @endforeach
+                @endforeach --}}
 	              </ul>
 	            </div>
             </div>

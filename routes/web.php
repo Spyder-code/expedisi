@@ -47,6 +47,8 @@ Route::post('/HapusArea', 'AreaController@HapusArea');
 Route::post('/UpdateArea', 'AreaController@UpdateArea');
 Route::post('/getExpedisi', 'AreaController@getExpedisi');
 
+Route::get('/TampilLacak', 'UserController@tampillacak');
+
 
 
 

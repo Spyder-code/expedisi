@@ -59,7 +59,6 @@
                         <label for="dari">Tujuan</label>
                         <select name="tujuan" class="form-control" id="tujuan">
                             <option value="Ambon">Ambon</option>
-                            <option value="Papua">Papua</option>
                         </select>
                     </div>
                 </div>
