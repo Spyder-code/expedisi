@@ -23,6 +23,7 @@ Route::get('/admin/owner', 'HomeController@owner');
 Route::get('/admin/expedisi', 'HomeController@expedisi');
 Route::get('/admin/pesan', 'HomeController@pesan');
 Route::get('/showMainDashboard', 'HomeController@showMainDashboard');
+Route::get('/showMainDashboard2', 'HomeController@showMainDashboard2');
 Route::get('/admin/transaksi', 'HomeController@transaksi');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 

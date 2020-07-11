@@ -349,7 +349,10 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+    <script src="{{ asset('user/chart.js/Chart.min.js') }}"></script>
 
+    @yield('custom-script')
+    @yield('custom-script2')
 
     </body>
 

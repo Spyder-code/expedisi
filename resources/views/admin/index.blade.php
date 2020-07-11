@@ -89,7 +89,7 @@
       <div class="row">
 
         <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
+        <div class="col-xl-6 col-lg-7">
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -116,7 +116,34 @@
           </div>
         </div>
 
-        <!-- Pie Chart -->
+        <div class="col-xl-6 col-lg-7">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Grafik Jumlah Transaksi</h6>
+                {{-- <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div> --}}
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                 <div class="chart-area">
+                    <canvas id="myChart2" max-width="200" height="130"></canvas>
+                 </div>
+              </div>
+            </div>
+          </div>
+
+        {{-- <!-- Pie Chart -->
         <div class="col-xl-4 col-lg-5">
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
@@ -153,7 +180,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
 
 
@@ -321,8 +348,202 @@
             data: {
                labels: monthVisitor,
                datasets: [{
-                     label: '# of Votes',
+                     label: arrayTotalVisitor+' Pengunjung',
                      data: arrayTotalVisitor,
+                     backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                     ],
+                     borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                     ],
+                     borderWidth: 1
+               }]
+            },
+            options: {
+               scales: {
+                     yAxes: [{
+                        ticks: {
+                           beginAtZero: true
+                        }
+                     }]
+               }
+            }
+         });
+
+      });
+    });
+</script>
+@endsection
+@section('custom-script2')
+<script>
+    $(document).ready(function() {
+
+      const arrayTotalTransaction = [];
+            monthTransaction = [];
+
+      let monthJan = 0;
+      let monthFeb = 0;
+      let monthMar = 0;
+      let monthApr = 0;
+      let monthMay = 0;
+      let monthJun = 0;
+      let monthJul = 0;
+      let monthAug = 0;
+      let monthSep = 0;
+      let monthOct = 0;
+      let monthNov = 0;
+      let monthDec = 0;
+
+      $.get( "{{ url('/showMainDashboard2') }}", function(response) {
+        const data = JSON.parse(response);
+        const currentYear = new Date().getFullYear();
+        data.map((data) => {
+            const jsDate = new Date(data.created_at).toString();
+            let splited = jsDate.split(" ");
+            if(splited[3] == currentYear){
+
+               if(splited[1] == "Jan") {
+                  monthJan += 1;
+                  if(monthTransaction.includes("Jan") != true){
+                     monthTransaction.push("Jan");
+                  }
+
+               } else if(splited[1] == "Feb") {
+                  monthFeb += 1;
+                  if(monthTransaction.includes("Feb") != true){
+                    monthTransaction.push("Feb");
+                  }
+
+               } else if(splited[1] == "Mar") {
+                  monthMar += 1;
+                  if(monthTransaction.includes("Mar") != true){
+                    monthTransaction.push("Mar");
+                  }
+
+               } else if(splited[1] == "Apr") {
+                  monthApr += 1;
+                  if(monthTransaction.includes("Apr") != true){
+                    monthTransaction.push("Apr");
+                  }
+
+               } else if(splited[1] == "May") {
+                  monthMay += 1;
+                  if(monthTransaction.includes("May") != true){
+                    monthTransaction.push("May");
+                  }
+
+               } else if(splited[1] == "Jun") {
+                  monthJun += 1;
+                  if(monthTransaction.includes("Jun") != true){
+                    monthTransaction.push("Jun");
+                  }
+
+               } else if(splited[1] == "Jul") {
+                  monthJul += 1;
+                  if(monthTransaction.includes("Jul") != true){
+                    monthTransaction.push("Jul");
+                  }
+
+               } else if(splited[1] == "Aug") {
+                  monthAug += 1;
+                  if(monthTransaction.includes("Aug") != true){
+                    monthTransaction.push("Aug");
+                  }
+
+               } else if(splited[1] == "Sep") {
+                  monthSep += 1;
+                  if(monthTransaction.includes("Sep") != true){
+                    monthTransaction.push("Sep");
+                  }
+
+               } else if(splited[1] == "Oct") {
+                  monthOct += 1;
+                  if(monthTransaction.includes("Oct") != true){
+                    monthTransaction.push("Oct");
+                  }
+
+               } else if(splited[1] == "Nov") {
+                  monthNov += 1;
+                  if(monthTransaction.includes("Nov") != true){
+                    monthTransaction.push("Nov");
+                  }
+
+               } else if(splited[1] == "Dec") {
+                  monthDec += 1;
+                  if(monthTransaction.includes("Dec") != true){
+                    monthTransaction.push("Dec");
+                  }
+               }
+            }
+        })
+
+
+         if(monthJan != 0){
+            arrayTotalTransaction.push(monthJan);
+         }
+
+         if(monthFeb != 0){
+            arrayTotalTransaction.push(monthFeb);
+         }
+
+         if(monthMar != 0){
+            arrayTotalTransaction.push(monthMar);
+         }
+
+         if(monthApr != 0){
+            arrayTotalTransaction.push(monthApr);
+         }
+
+         if(monthMay != 0){
+            arrayTotalTransaction.push(monthMay);
+         }
+
+         if(monthJun != 0){
+            arrayTotalTransaction.push(monthJun);
+         }
+
+         if(monthJul != 0){
+            arrayTotalTransaction.push(monthJul);
+         }
+
+         if(monthAug != 0){
+            arrayTotalTransaction.push(monthAug);
+         }
+
+         if(monthSep != 0){
+            arrayTotalTransaction.push(monthSep);
+         }
+
+         if(monthOct != 0){
+            arrayTotalTransaction.push(monthOct);
+         }
+
+         if(monthNov != 0){
+            arrayTotalTransaction.push(monthNov);
+         }
+
+         if(monthDec != 0){
+            arrayTotalTransaction.push(monthDec);
+         }
+
+         var ctx = document.getElementById('myChart2');
+         var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+               labels: monthTransaction,
+               datasets: [{
+                     label: arrayTotalTransaction+' Transaksi',
+                     data: arrayTotalTransaction,
                      backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
