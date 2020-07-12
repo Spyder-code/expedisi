@@ -1,5 +1,62 @@
 @extends('layouts.admin')
 
+@section('sidebar')
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+   <a class="nav-link" href="{{url('home')}}">
+     <i class="fas fa-list-ul"></i>
+     <span>Main Dashboard</span></a>
+   </li>
+   <hr class="sidebar-divider my-0">
+
+ <!-- Nav Item - Pages Collapse Menu -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/perusahaan')}}">
+     <i class="fas fa-briefcase"></i>
+     <span>Perusahaan</span></a>
+ </li>
+
+ <!-- Nav Item - Charts -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/owner')}}">
+     <i class="fas fa-user"></i>
+     <span>Owner</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/transaksi')}}">
+     <i class="fas fa-cash-register"></i>
+     <span>Transaksi</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/laporanTransaksi')}}">
+     <i class="fas fa-chart-line"></i>
+     <span>Laporan Transaksi</span></a>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+     <i class="fas fa-ship"></i>
+     <span>Expedisi</span>
+   </a>
+   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+       <a class="collapse-item" href="{{url('admin/expedisi')}}">Tambah Expedisi</a>
+       <a class="collapse-item" href="{{url('admin/area')}}">Area Ekspedisi</a>
+     </div>
+   </div>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/pesan')}}">
+     <i class="fas fa-envelope"></i>
+     <span>Pesan</span></a>
+ </li>
+@endsection
+
 @section('content')
    <!-- Begin Page Content -->
    <div class="container-fluid">
@@ -11,176 +68,95 @@
 
       <!-- Content Row -->
       <div class="row justify-content-center">
-        <!-- Earnings (Monthly) Card Example -->
-        {{-- <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Penghasilan</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
 
-        {{-- produk terjual --}}
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah expedisi</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$expedisi}}</div>
-                </div>
-                <div class="col-sm-auto">
-                  <i class="fas fa-cart-arrow-down fa-2x text-gray-300"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {{-- jumlah pembeli --}}
+        <!-- Produk terjual -->
         <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-info shadow h-100 py-2">
+         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah transaksi</div>
-                  <div class="row no-gutters align-items-center">
-                    <div class="col-sm-auto">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$transaksi}}</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-auto">
+            <div class="row no-gutters align-items-center">
+               <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Expedisi</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $expedisi }}</div>
+               </div>
+               <div class="col-auto">
                   <i class="fas fa-user-check fa-2x text-gray-300"></i>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </div>
-
-        {{-- jumlah pengunjung --}}
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col-sm mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Jumlah Pengunjung</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{$visitor}}</div>
-                </div>
-                <div class="col-sm-auto">
-                  <i class="fas fa-user-friends fa-2x text-gray-300"></i>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
+
+         <!-- Produk terjual -->
+         <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+               <div class="card-body">
+               <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Transaksi</div>
+                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $transaksi }}</div>
+                  </div>
+                  <div class="col-auto">
+                     <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                  </div>
+               </div>
+               </div>
+            </div>
+         </div>
+
+        <!-- Jumlah pengunjung -->
+        <div class="col-xl-3 col-md-6 mb-4">
+         <div class="card border-left-warning shadow h-100 py-2">
+           <div class="card-body">
+             <div class="row no-gutters align-items-center">
+               <div class="col mr-2">
+                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Jumlah Pengunjung</div>
+                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $visitor }}</div>
+               </div>
+               <div class="col-auto">
+                 <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
 
       <!-- Content Row -->
 
-      <div class="row">
+      <div class="row mb-4">
 
         <!-- Area Chart -->
         <div class="col-xl-6 col-lg-7">
-          <div class="card shadow mb-4">
+          <div class="card shadow mb-4" style="height: 370px">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 class="m-0 font-weight-bold text-primary">Grafik Jumlah Pengunjung</h6>
-              {{-- <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Dropdown Header:</div>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div> --}}
             </div>
             <!-- Card Body -->
             <div class="card-body">
                <div class="chart-area">
-                  <canvas id="myChart" max-width="200" height="130"></canvas>
+                  <canvas id="myChart" max-width="200" height="200"></canvas>
                </div>
             </div>
           </div>
         </div>
 
         <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-4" style="height: 370px">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Grafik Jumlah Transaksi</h6>
-                {{-- <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div> --}}
               </div>
               <!-- Card Body -->
               <div class="card-body">
                  <div class="chart-area">
-                    <canvas id="myChart2" max-width="200" height="130"></canvas>
+                    <canvas id="myChart2" max-width="200" height="200"></canvas>
                  </div>
               </div>
             </div>
           </div>
 
-        {{-- <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-          <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-              <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Dropdown Header:</div>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <div class="chart-pie pt-4 pb-2">
-                <canvas id="myPieChart"></canvas>
-              </div>
-              <div class="mt-4 text-center small">
-                <span class="mr-2">
-                  <i class="fas fa-circle text-primary"></i> Direct
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-success"></i> Social
-                </span>
-                <span class="mr-2">
-                  <i class="fas fa-circle text-info"></i> Referral
-                </span>
-              </div>
-            </div>
-          </div>
-        </div> --}}
       </div>
 
 

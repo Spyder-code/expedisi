@@ -1,4 +1,62 @@
 @extends('layouts.admin')
+
+@section('sidebar')
+<!-- Nav Item - Dashboard -->
+<li class="nav-item">
+   <a class="nav-link" href="{{url('home')}}">
+     <i class="fas fa-list-ul"></i>
+     <span>Main Dashboard</span></a>
+   </li>
+   <hr class="sidebar-divider my-0">
+
+ <!-- Nav Item - Pages Collapse Menu -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/perusahaan')}}">
+     <i class="fas fa-briefcase"></i>
+     <span>Perusahaan</span></a>
+ </li>
+
+ <!-- Nav Item - Charts -->
+ <li class="nav-item active">
+   <a class="nav-link" href="{{url('admin/owner')}}">
+     <i class="fas fa-user"></i>
+     <span>Owner</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/transaksi')}}">
+     <i class="fas fa-cash-register"></i>
+     <span>Transaksi</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/laporanTransaksi')}}">
+     <i class="fas fa-chart-line"></i>
+     <span>Laporan Transaksi</span></a>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+     <i class="fas fa-ship"></i>
+     <span>Expedisi</span>
+   </a>
+   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+       <a class="collapse-item" href="{{url('admin/expedisi')}}">Tambah Expedisi</a>
+       <a class="collapse-item" href="{{url('admin/area')}}">Area Ekspedisi</a>
+     </div>
+   </div>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/pesan')}}">
+     <i class="fas fa-envelope"></i>
+     <span>Pesan</span></a>
+ </li>
+@endsection
+
 @section('content')
 <div class="container">
    @if (session('status'))
@@ -43,8 +101,8 @@
    @enderror
    <div class="row">
       <div class="col-sm text-center">
-         <div class="card mt-3 ml-5">
-            <img class="img-thumbnail ml-5 mr-5 mt-3" class="img-responsive" src="{{asset('image/owner/'.$owner->image)}}" style="height:260px" >
+         <div class="card mt-3 ">
+            <img class="img-thumbnail mx-auto mt-3" class="img-responsive" src="{{asset('image/owner/'.$owner->image)}}" style="height:260px" >
             <div class="card-body">
                 <h5 class="card-title">{{ $owner->name }}</h5>
                 <ul class="list-group text-left">
@@ -65,7 +123,7 @@
 
       </div>
        <div class="col-sm mt-3">
-        <h4>Ganti Username</h4>
+        <h4 class="font-weight-bold">Ganti Username</h4>
         <hr>
         <form  method="post" action="{{ url('/GantiUsernameOwner') }}" enctype="multipart/form-data">
             @csrf
@@ -75,7 +133,7 @@
            </div>
            <button type="submit" class="btn btn-success mb-2 float-right mr-5">Ubah</button>
         </form>
-           <h4>Foto Profil</h4>
+           <h4 class="font-weight-bold">Foto Profil</h4>
            <hr>
            <form  method="post" action="{{ url('/GantiIconOwner') }}" enctype="multipart/form-data">
                @csrf
@@ -87,7 +145,7 @@
               </div>
               <button type="submit" class="btn btn-success mb-2 float-right mr-5">Ubah</button>
            </form>
-           <h4 class="mt-5">Ganti Password</h4>
+           <h4 class="font-weight-bold mt-5">Ganti Password</h4>
            <hr>
            <form class="form-row" method="post" action="{{ url('/GantiPasswordOwner') }}">
                  @csrf

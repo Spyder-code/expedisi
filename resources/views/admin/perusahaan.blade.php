@@ -1,4 +1,62 @@
 @extends('layouts.admin')
+
+@section('sidebar')
+<!-- Nav Item - Dashboard -->
+<li class="nav-item">
+   <a class="nav-link" href="{{url('home')}}">
+     <i class="fas fa-list-ul"></i>
+     <span>Main Dashboard</span></a>
+   </li>
+   <hr class="sidebar-divider my-0">
+
+ <!-- Nav Item - Pages Collapse Menu -->
+ <li class="nav-item active">
+   <a class="nav-link" href="{{url('admin/perusahaan')}}">
+     <i class="fas fa-briefcase"></i>
+     <span>Perusahaan</span></a>
+ </li>
+
+ <!-- Nav Item - Charts -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/owner')}}">
+     <i class="fas fa-user"></i>
+     <span>Owner</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/transaksi')}}">
+     <i class="fas fa-cash-register"></i>
+     <span>Transaksi</span></a>
+ </li>
+
+ <!-- Nav Item - Tables -->
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/laporanTransaksi')}}">
+     <i class="fas fa-chart-line"></i>
+     <span>Laporan Transaksi</span></a>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+     <i class="fas fa-ship"></i>
+     <span>Expedisi</span>
+   </a>
+   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+     <div class="bg-white py-2 collapse-inner rounded">
+       <a class="collapse-item" href="{{url('admin/expedisi')}}">Tambah Expedisi</a>
+       <a class="collapse-item" href="{{url('admin/area')}}">Area Ekspedisi</a>
+     </div>
+   </div>
+ </li>
+
+ <li class="nav-item">
+   <a class="nav-link" href="{{url('admin/pesan')}}">
+     <i class="fas fa-envelope"></i>
+     <span>Pesan</span></a>
+ </li>
+@endsection
+
 @section('content')
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
@@ -58,50 +116,52 @@
       </div>
       @enderror
         <div class="card">
-            <div class="row mt-5 mb-5 mr-5 ml-5">
+            <div class="row mt-5 mb-5 mr-3 ml-3">
                 <div class="col-sm col-sm-4">
                     <h4 class="card-title">Icon perusahaan</h4>
                     <img src="{{asset('image/perusahaan/'.$perusahaan->logo)}}" class="img-thumbnail" class="img-responsive" alt="">
-                    <button data-toggle="modal" data-target="#modalIcon" class="btn btn-sm btn-primary mt-2">Edit Icon <span class="mdi mdi-camera"></span></button>
+                     <div class="mt-2">
+                        <button data-toggle="modal" data-target="#modalIcon" class="btn btn-sm btn-primary mt-2">Edit Icon <span class="mdi mdi-camera"></span></button>
+                     </div>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm mt-4">
                     <ul class="list-group text-left">
                         <li class="list-group-item">
                            <div class="row">
                               <div class="col-sm-2">
-                                  <label for="address">Nama Perusahaan:</label>
+                                  <label class="font-weight-bold">Nama Perusahaan:</label>
                               </div>
                               <div class="col-sm-8">
-                                  <label for="" class="float-right"> {{ $perusahaan->nama }}</label>
+                                  <label class="float-right"> {{ $perusahaan->nama }}</label>
                                </div>
                                <div class="col-sm-2">
-                                  <button data-toggle="modal" data-target="#modalNama" class="badge badge-primary float-right">Edit</button>
+                                  <button data-toggle="modal" data-target="#modalNama" class="btn btn-sm btn-primary float-right">Edit</button>
                               </div>
                           </div>
                         </li>
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-sm-2">
-                                    <label for="address">Alamat:</label>
+                                    <label class="font-weight-bold">Alamat:</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <label for="" class="float-right"> {{ $perusahaan->alamat }}</label>
+                                    <label class="float-right"> {{ $perusahaan->alamat }}</label>
                                  </div>
                                  <div class="col-sm-2">
-                                    <button data-toggle="modal" data-target="#modalAlamat" class="badge badge-primary float-right">Edit</button>
+                                    <button data-toggle="modal" data-target="#modalAlamat" class="btn btn-sm btn-primary float-right">Edit</button>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item">
                            <div class="row">
                               <div class="col-sm-2">
-                                  <label for="address">Phone:</label>
+                                  <label class="font-weight-bold">Phone:</label>
                               </div>
                               <div class="col-sm-8">
-                                  <label for="" class="float-right"> {{ $perusahaan->nomor }}</label>
+                                  <label class="float-right"> {{ $perusahaan->nomor }}</label>
                                </div>
                                <div class="col-sm-2">
-                                  <button data-toggle="modal" data-target="#modalNomor" class="badge badge-primary float-right">Edit</button>
+                                  <button data-toggle="modal" data-target="#modalNomor" class="btn btn-sm btn-primary float-right">Edit</button>
                               </div>
                           </div>
                         </li>
