@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-sm">
             <div class="card">
                 <div class="card-body">
                     @if (session('status'))
@@ -13,16 +13,17 @@
                         </button>
                         </div>
                     @endif
+                    <div class="table-responsive-sm">
                     <table class="table text-center">
                         <thead class="table-dark">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Pengirim</th>
-                            <th scope="col">Barang</th>
-                            <th scope="col">Alamat Penerima</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Kode Pengiriman</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col-sm">No</th>
+                            <th scope="col-sm">Nama Pengirim</th>
+                            <th scope="col-sm">Barang</th>
+                            <th scope="col-sm">Alamat Penerima</th>
+                            <th scope="col-sm">Status</th>
+                            <th scope="col-sm">Kode Pengiriman</th>
+                            <th scope="col-sm">Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -61,6 +62,7 @@
                     @endforeach
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div>

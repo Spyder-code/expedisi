@@ -18,15 +18,15 @@
             </div>
         @endif
         <div class="row">
-            <div class="col">
+            <div class="col-sm">
                 <div class="card">
                 <form action="{{url('InputTransaksi')}}" method="post" class="form mt-5 mb-5 mr-5 ml-5" method="post">
                         @csrf
                         <input type="hidden" name="idExpedisi" id="idExpedisi">
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col col-2">Nama Expedisi</div>
-                                <div class="col">
+                                <div class="col-sm col-sm-2">Nama Expedisi</div>
+                                <div class="col-sm">
                                     <select name="expedisi" class="form-control" id="expedisi">
                                         <option selected="selected" disabled="disabled"></option>
                                         @foreach($expedisi as $ex)
@@ -38,11 +38,11 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="Pengirim">Nama Pengirim</label>
                                     <input type="text" name="pengirim" class="form-control">
                                 </div>
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="Pengirim">Alamat Pengirim</label>
                                     <input type="text" name="alamatPengirim" class="form-control">
                                 </div>
@@ -50,11 +50,11 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="Penerima">Nama Penerima</label>
                                     <input type="text" name="penerima" class="form-control">
                                 </div>
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="Penerima">Alamat Penerima</label>
                                     <input type="text" name="alamatPenerima" class="form-control">
                                 </div>
@@ -63,15 +63,15 @@
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col col-6">
+                                <div class="col-sm col-sm-6">
                                     <label for="dari">Nama barang</label>
                                     <input type="text" name="barang" id="barang" class="form-control">
                                 </div>
-                                <div class="col col-3">
+                                <div class="col-sm col-sm-3">
                                     <label for="dari">Berat</label>
                                     <input type="number" name="berat" id="berat" value="1" class="form-control">
                                 </div>
-                                <div class="col col-3">
+                                <div class="col-sm col-sm-3">
                                     <label for="dari">Satuan</label>
                                     <select name="tujuan" class="form-control" id="satuan">
                                         <option selected="selected" disabled="disabled"></option>
@@ -86,11 +86,11 @@
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="dari">Dari</label>
                                     <input type="text" name="dari" value="Surabaya" id="dari" class="form-control">
                                 </div>
-                                <div class="col">
+                                <div class="col-sm">
                                     <label for="dari">Tujuan</label>
                                     <select name="tujuan" class="form-control" id="tujuan">
                                         <option value="Ambon">Ambon</option>
@@ -101,8 +101,8 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col col-2">Harga</div>
-                                <div class="col">
+                                <div class="col-sm col-sm-2">Harga</div>
+                                <div class="col-sm">
                                     <input type="text" name="harga" id="harga" class="form-control" readonly="">
                                 </div>
                             </div>

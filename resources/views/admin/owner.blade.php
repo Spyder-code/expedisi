@@ -42,18 +42,18 @@
    </div>
    @enderror
    <div class="row">
-      <div class="col text-center">
+      <div class="col-sm text-center">
          <div class="card mt-3 ml-5">
-            <img class="img-thumbnail ml-5 mr-5 mt-3" src="{{asset('image/owner/'.$owner->image)}}" style="height:260px">
+            <img class="img-thumbnail ml-5 mr-5 mt-3" class="img-responsive" src="{{asset('image/owner/'.$owner->image)}}" style="height:260px" >
             <div class="card-body">
                 <h5 class="card-title">{{ $owner->name }}</h5>
                 <ul class="list-group text-left">
                     <li class="list-group-item">
                        <div class="row">
-                          <div class="col-3">
+                          <div class="col-sm-3">
                              <label for="address">Phone:</label>
                           </div>
-                          <div class="col-9">
+                          <div class="col-sm-9">
                              {{ $owner->no_telp }}
                              <a href="#" data-toggle="modal" data-target="#modalNomor" class="badge badge-primary">Edit</a>
                           </div>
@@ -64,7 +64,7 @@
          </div>
 
       </div>
-       <div class="col mt-3">
+       <div class="col-sm mt-3">
         <h4>Ganti Username</h4>
         <hr>
         <form  method="post" action="{{ url('/GantiUsernameOwner') }}" enctype="multipart/form-data">
@@ -91,14 +91,14 @@
            <hr>
            <form class="form-row" method="post" action="{{ url('/GantiPasswordOwner') }}">
                  @csrf
-                 <div class="col">
+                 <div class="col-sm">
                     <div class="form-group">
                        <label for="pass1">Old Password</label>
                        <input type="password" class="form-control" name="pass1" required>
                     <input type="hidden" class="form-control" name="id" value="{{$owner->id}}">
                     </div>
                  </div>
-                 <div class="col">
+                 <div class="col-sm">
                     <div class="form-group">
                        <label for="pass2">New Password</label>
                        <input type="password" class="form-control" name="pass2" required>

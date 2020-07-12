@@ -33,11 +33,11 @@
           <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col-sm mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah expedisi</div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$expedisi}}</div>
                 </div>
-                <div class="col-auto">
+                <div class="col-sm-auto">
                   <i class="fas fa-cart-arrow-down fa-2x text-gray-300"></i>
                 </div>
               </div>
@@ -50,15 +50,15 @@
           <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col-sm mr-2">
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah transaksi</div>
                   <div class="row no-gutters align-items-center">
-                    <div class="col-auto">
+                    <div class="col-sm-auto">
                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$transaksi}}</div>
                     </div>
                   </div>
                 </div>
-                <div class="col-auto">
+                <div class="col-sm-auto">
                   <i class="fas fa-user-check fa-2x text-gray-300"></i>
                 </div>
               </div>
@@ -71,11 +71,11 @@
           <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col-sm mr-2">
                   <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Jumlah Pengunjung</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">{{$visitor}}</div>
                 </div>
-                <div class="col-auto">
+                <div class="col-sm-auto">
                   <i class="fas fa-user-friends fa-2x text-gray-300"></i>
                 </div>
               </div>

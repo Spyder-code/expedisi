@@ -18,16 +18,17 @@
             </div>
         @endif
         <div class="row">
-            <div class="col">
+            <div class="col-sm">
                 <div class="card">
+                    <div class="table-responsive-sm">
                     <table class="table">
                         <thead class="table-dark">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Isi</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col-sm">No</th>
+                            <th scope="col-sm">Nama</th>
+                            <th scope="col-sm">Email</th>
+                            <th scope="col-sm">Isi</th>
+                            <th scope="col-sm">Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -51,6 +52,7 @@
                     @endforeach
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

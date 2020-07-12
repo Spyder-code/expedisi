@@ -18,17 +18,18 @@
             </div>
         @endif
             <div class="row">
-                <div class="col col-sm-8">
+                <div class="col-sm col-sm-8">
                     <div class="card">
+                        <div class="table-responsive-sm">
                         <table class="table">
                             <thead class="table-dark">
                               <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Ekspedisi</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Satuan</th>
-                                <th scope="col">Tujuan</th>
-                                <th scope="col">Aksi</th>
+                                <th scope="col-sm">No</th>
+                                <th scope="col-sm">Ekspedisi</th>
+                                <th scope="col-sm">Harga</th>
+                                <th scope="col-sm">Satuan</th>
+                                <th scope="col-sm">Tujuan</th>
+                                <th scope="col-sm">Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -92,10 +93,11 @@
                                 @endforeach
                             </tbody>
                           </table>
+                        </div>
                     </div>
                 </div>
 
-            <div class="col col-sm-4 border-left">
+            <div class="col-sm col-sm-4 border-left">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="text-center mt-3">Tambah Area</h4>
@@ -113,11 +115,11 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="deskripsi">Harga</label>
                                         <input type="number" name="harga" id="harga" class="form-control">
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="deskripsi">Satuan</label>
                                         <select name="berat" id="berat" class="form-control">
                                             <option selected="selected" disabled="disabled"></option>
@@ -132,11 +134,11 @@
 
                             <div class="form-group text-center">
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="deskripsi">Dari</label>
                                         <input type="text" name="dari" id="dari" class="form-control">
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm">
                                         <label for="deskripsi">Tujuan</label>
                                         <input type="text" name="tujuan" id="tujuan" class="form-control">
                                     </div>

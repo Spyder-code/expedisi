@@ -17,7 +17,7 @@
             </div>
         @endif
 <div class="row">
-    <div class="col">
+    <div class="col-sm">
       @if (session('success'))
       <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
          {{ session('success') }}
@@ -59,48 +59,48 @@
       @enderror
         <div class="card">
             <div class="row mt-5 mb-5 mr-5 ml-5">
-                <div class="col col-4">
+                <div class="col-sm col-sm-4">
                     <h4 class="card-title">Icon perusahaan</h4>
-                    <img src="{{asset('image/perusahaan/'.$perusahaan->logo)}}" class="img-thumbnail" alt="">
+                    <img src="{{asset('image/perusahaan/'.$perusahaan->logo)}}" class="img-thumbnail" class="img-responsive" alt="">
                     <button data-toggle="modal" data-target="#modalIcon" class="btn btn-sm btn-primary mt-2">Edit Icon <span class="mdi mdi-camera"></span></button>
                 </div>
-                <div class="col">
+                <div class="col-sm">
                     <ul class="list-group text-left">
                         <li class="list-group-item">
                            <div class="row">
-                              <div class="col-2">
+                              <div class="col-sm-2">
                                   <label for="address">Nama Perusahaan:</label>
                               </div>
-                              <div class="col-8">
+                              <div class="col-sm-8">
                                   <label for="" class="float-right"> {{ $perusahaan->nama }}</label>
                                </div>
-                               <div class="col-2">
+                               <div class="col-sm-2">
                                   <button data-toggle="modal" data-target="#modalNama" class="badge badge-primary float-right">Edit</button>
                               </div>
                           </div>
                         </li>
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-sm-2">
                                     <label for="address">Alamat:</label>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-sm-8">
                                     <label for="" class="float-right"> {{ $perusahaan->alamat }}</label>
                                  </div>
-                                 <div class="col-2">
+                                 <div class="col-sm-2">
                                     <button data-toggle="modal" data-target="#modalAlamat" class="badge badge-primary float-right">Edit</button>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item">
                            <div class="row">
-                              <div class="col-2">
+                              <div class="col-sm-2">
                                   <label for="address">Phone:</label>
                               </div>
-                              <div class="col-8">
+                              <div class="col-sm-8">
                                   <label for="" class="float-right"> {{ $perusahaan->nomor }}</label>
                                </div>
-                               <div class="col-2">
+                               <div class="col-sm-2">
                                   <button data-toggle="modal" data-target="#modalNomor" class="badge badge-primary float-right">Edit</button>
                               </div>
                           </div>
@@ -205,7 +205,7 @@
                      <label for="iconInput" class="mb-4">Masukan Icon Perusahaan Baru</label>
                      <input type="file" name="image" id="iconInput" onchange="loadFile(event)" required>
                      <input type="hidden" name="id" value="{{$perusahaan->id}}">
-                     <img id="output" class="img-thumbnail mt-3" />
+                     <img id="output" class="img-thumbnail mt-3" class="img-responsive" />
                      <script>
                      var loadFile = function(event) {
                            var output = document.getElementById('output');
