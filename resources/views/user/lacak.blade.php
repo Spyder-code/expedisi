@@ -11,7 +11,7 @@
       <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
         <div class="row d-flex justify-content-center mt-4 mb-4">
           <div class="col-md-12">
-            <form class="subscribe-form"  method="get" action="/TampilLacak">
+            <form class="subscribe-form"  method="get" action="{{url('TampilLacak')}}">
               <div class="form-group d-flex">
                 @csrf
                 <input type="text" class="form-control text-center" name="cari" placeholder="Masukkan kode kiriman">

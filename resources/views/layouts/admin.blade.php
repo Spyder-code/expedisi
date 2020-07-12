@@ -42,7 +42,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="{{url('home')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-list-ul"></i>
           <span>Main Dashboard</span></a>
         </li>
         <hr class="sidebar-divider my-0">
@@ -50,34 +50,34 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/perusahaan')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-briefcase"></i>
           <span>Perusahaan</span></a>
       </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/owner')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-user"></i>
           <span>Owner</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/transaksi')}}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-cash-register"></i>
           <span>Transaksi</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/laporanTransaksi')}}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-chart-line"></i>
           <span>Laporan Transaksi</span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
+          <i class="fas fa-ship"></i>
           <span>Expedisi</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -90,7 +90,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="{{url('admin/pesan')}}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-envelope"></i>
           <span>Pesan</span></a>
       </li>
 

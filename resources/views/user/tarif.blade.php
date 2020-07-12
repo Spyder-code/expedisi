@@ -54,7 +54,7 @@
                 <div class="form-row">
                     <div class="col">
                         <label for="dari">Dari</label>
-                        <input type="text" name="dari" value="Surabaya" id="dari" class="form-control">
+                        <input type="text" name="dari" disabled value="Surabaya" id="dari" class="form-control">
                     </div>
                     <div class="col">
                         <label for="dari">Tujuan</label>

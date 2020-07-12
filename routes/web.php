@@ -45,6 +45,7 @@ Route::post('/GantiNomorOwner', 'OwnerController@GantiNomorOwner');
 Route::post('/GantiUsernameOwner', 'OwnerController@GantiUsernameOwner');
 Route::post('/GantiPasswordOwner', 'OwnerController@GantiPasswordOwner');
 Route::post('/InputTransaksi', 'TransactionController@InputTransaksi');
+Route::post('/gantiStatus', 'TransactionController@gantiStatus');
 Route::post('/HapusPesan', 'ChatsController@HapusPesan');
 Route::post('/HapusExpedisi', 'ExpeditionController@HapusExpedisi');
 Route::post('/UpdateExpedisi', 'ExpeditionController@UpdateExpedisi');

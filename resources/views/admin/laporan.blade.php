@@ -44,12 +44,18 @@
                             <td>{{$item->kode }}</td>
                             <td>
                                 <form action="{{url('/DetailLaporan')}}" method="get">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$item->id}}">
-                                <button type="submit" class="btn btn-sm btn-secondary">Detail</button>
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                    <button type="submit" class="btn btn-sm btn-secondary">Detail</button>
                                 </form>
-                                <button class="btn btn-sm btn-warning" data-toggle="modal" data-target="#ub-{{$item->id}}">Ubah</button>
-                                <button class="btn btn-sm btn-primary">Ganti Status</button>
+                                <button class="btn btn-sm btn-warning mt-2" data-toggle="modal" data-target="#ub-{{$item->id}}">Ubah</button>
+                                @if ($item->status!=2)
+                                <form action="{{url('/gantiStatus')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$item->id}}">
+                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-primary mt-2">Ganti Status</button>
+                                </form>
+                                @endif
                             </td>
                             </tr>
                     @endforeach
@@ -83,10 +89,6 @@
                         <div class="form-group">
                             <label for="">Alamat Penerima</label>
                             <input type="text" name="alamat_penerima" class="form-control" value="{{$item->alamat_penerima}}">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Status</label>
-                            <input type="text" name="status" class="form-control" value="{{$item->status}}">
                         </div>
                         <div class="form-group">
                             <label for="">Kode</label>

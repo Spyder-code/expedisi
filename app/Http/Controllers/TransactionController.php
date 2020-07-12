@@ -43,7 +43,7 @@ class TransactionController extends Controller
             'tujuan' => 'required',
             'harga' => 'required'
          ]);
-         mt_srand(10);
+         $kode = mt_rand(100000000, 999999999);
         Transaction::create([
             'id_expedisi' => $request->idExpedisi,
             'pengirim' => $request->pengirim,
@@ -56,9 +56,23 @@ class TransactionController extends Controller
             'tujuan' => $request->tujuan,
             'harga' => $request->harga,
             'status' => 0,
-            'kode' => mt_rand()
+            'kode' => $kode
         ]);
         return redirect('/admin/transaksi')->with('status','Data Transaksi berhasil ditambahkan!');
+    }
+
+    public function gantiStatus(Request $request)
+    {
+        $id = $request->id;
+        $data = Transaction::where('id',$id)->first();
+        $status = $data->status;
+        if($status==0){
+            Transaction::where('id',$id)->update(['status'=>1]);
+            return back()->with('status','Status Ekspedisi berhasil diubah!');
+        }else if($status==1){
+            Transaction::where('id',$id)->update(['status'=>2]);
+            return back()->with('status','Status Ekspedisi berhasil diubah!');
+        }
     }
 
 }

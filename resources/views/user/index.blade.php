@@ -217,11 +217,11 @@ transition: 1s ease;
     </div>
   </section>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center mt-4">
-        <div class="col-md-8 heading-section text-center ftco-animate">
-            <h2 class="mb-0">Dokumentasi Ekspedisi</h2>
-            <div class="card">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-0 mt-5">Dokumentasi Ekspedisi</h2>
+            <div class="cardg">
                 <div class="card-body">
                     <div class="gallery color" id="gallery">
                         <div class="mb-3 pics animation all 2">

@@ -124,7 +124,6 @@ class HomeController extends Controller
                 'pengirim' => 'required',
                 'barang'  => 'required',
                 'alamat_penerima'  => 'required',
-                'status'  => 'required',
                 'kode'  => 'required'
                  ]);
 
@@ -133,7 +132,6 @@ class HomeController extends Controller
                         'pengirim' => $request->pengirim,
                         'barang' => $request->barang,
                         'alamat_penerima' => $request->alamat_penerima,
-                        'status' => $request->status,
                         'kode' => $request->kode,
                 ]);
             return redirect('/admin/laporanTransaksi')->with('status','Data berhasil di ubah!');

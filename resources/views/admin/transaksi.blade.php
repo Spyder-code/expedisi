@@ -131,9 +131,12 @@
                 data:{id:id},
                 success:function (data) {
                     $('#satuan').empty();
+                    $('#tujuan').empty();
                     $("#satuan").append(new Option("","" ));
+                    $("#tujuan").append(new Option("","" ));
                     $.each(data, function(index, value) {
                         $("#satuan").append(new Option(value.berat, value.harga ));
+                        $("#tujuan").append(new Option(value.tujuan, value.tujuan ));
                     });
                     $('#satuan').change(function () {
                     var a = $(this).find(":selected").val();

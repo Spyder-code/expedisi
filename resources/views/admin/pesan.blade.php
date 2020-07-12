@@ -45,7 +45,7 @@
                                     @csrf
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('apakah kamu yakin menghapus layanan ini?')">Hapus</button>
                             </form>
-                                <button class="btn btn-sm btn-primary">Balas</button>
+                                {{-- <button class="btn btn-sm btn-primary">Balas</button> --}}
                             </td>
                             </tr>
                     @endforeach
