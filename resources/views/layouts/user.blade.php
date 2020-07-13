@@ -73,6 +73,7 @@
                 {{-- <img src="../assets/img/Studioku.png" class="rounded-circle mr-sm-2 mb-4" style="width: 250px; height: 150px;"> --}}
             </div>
           </div>
+          @php( $perusahaan = \App\Company::all())
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
             	<h2 class="ftco-heading-2">Hubungi kami</h2>
