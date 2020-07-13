@@ -83,7 +83,7 @@
         @endif
             <div class="row">
                 <div class="col-sm col-sm-8">
-                    <div class="card">
+                    <div class="card shadow-sm">
                         <div class="table-responsive-sm">
                         <table class="table">
                             <thead class="table-dark">
@@ -161,8 +161,8 @@
                     </div>
                 </div>
 
-            <div class="col-sm col-sm-4 border-left">
-                <div class="card">
+            <div class="col-sm col-sm-4">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <h4 class="text-center mt-3">Tambah Area</h4>
                         <hr>

@@ -83,7 +83,7 @@
         @endif
             <div class="row mb-5">
                 <div class="col-sm col-sm-8">
-                    <div class="card">
+                    <div class="card shadow-sm">
                         <div class="table-responsive-md">
                         <table class="table">
                             <thead class="table-dark">
@@ -139,8 +139,8 @@
                     </div>
                 </div>
 
-            <div class="col-sm col-sm-4 border-left">
-                <div class="card">
+            <div class="col-sm col-sm-4">
+                <div class="card shadow-sm">
                     <div class="card-body">
                         <h4 class="text-center mt-3">Tambah Expedisi</h4>
                         <hr>

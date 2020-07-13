@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false]);
 Route::get('/home', 'HomeController@index');
 Route::get('/admin/perusahaan', 'HomeController@perusahaan');
 Route::get('/admin/layanan', 'HomeController@layanan');

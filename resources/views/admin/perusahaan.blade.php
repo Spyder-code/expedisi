@@ -58,6 +58,12 @@
 @endsection
 
 @section('content')
+
+          <!-- Page Heading -->
+         <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Perusahaan</h1>
+         </div>
+
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             {{ session('status') }}
@@ -115,7 +121,7 @@
         </button>
       </div>
       @enderror
-        <div class="card">
+        <div class="card mb-5 shadow-sm">
             <div class="row mt-5 mb-5 mr-3 ml-3">
                 <div class="col-sm col-sm-4">
                     <h4 class="card-title">Icon perusahaan</h4>
@@ -155,7 +161,7 @@
                         <li class="list-group-item">
                            <div class="row">
                               <div class="col-sm-2">
-                                  <label class="font-weight-bold">Phone:</label>
+                                  <label class="font-weight-bold">No. Telp:</label>
                               </div>
                               <div class="col-sm-8">
                                   <label class="float-right"> {{ $perusahaan->nomor }}</label>

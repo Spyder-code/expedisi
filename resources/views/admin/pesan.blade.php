@@ -59,6 +59,12 @@
 
 @section('content')
     <div class="container">
+
+         <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">Pesan</h1>
+          </div>
+
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             {{ session('status') }}

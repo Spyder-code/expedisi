@@ -80,7 +80,7 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $expedisi }}</div>
                </div>
                <div class="col-auto">
-                  <i class="fas fa-user-check fa-2x text-gray-300"></i>
+                  <i class="fas fa-plane fa-2x text-gray-300"></i>
                </div>
             </div>
             </div>
@@ -128,7 +128,7 @@
 
         <!-- Area Chart -->
         <div class="col-xl-6 col-lg-7">
-          <div class="card shadow mb-4" style="height: 370px">
+          <div class="card shadow mb-4 h-md-75" >
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 class="m-0 font-weight-bold text-primary">Grafik Jumlah Pengunjung</h6>
@@ -143,7 +143,7 @@
         </div>
 
         <div class="col-xl-6 col-lg-7">
-            <div class="card shadow mb-4" style="height: 370px">
+            <div class="card shadow mb-4 h-md-75">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Grafik Jumlah Transaksi</h6>

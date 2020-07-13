@@ -59,6 +59,12 @@
 
 @section('content')
 <div class="container">
+
+    <!-- Page Heading -->
+   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">Owner</h1>
+   </div>
+
    @if (session('status'))
    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
       {{ session('status') }}
@@ -101,19 +107,19 @@
    @enderror
    <div class="row">
       <div class="col-sm text-center">
-         <div class="card mt-3 ">
-            <img class="img-thumbnail mx-auto mt-3" class="img-responsive" src="{{asset('image/owner/'.$owner->image)}}" style="height:260px" >
+         <div class="card mt-3 shadow-sm">
+            <img class="img-thumbnail mx-auto mt-3" class="img-responsive" src="{{asset('image/owner/'.$owner->image)}}">
             <div class="card-body">
                 <h5 class="card-title">{{ $owner->name }}</h5>
                 <ul class="list-group text-left">
                     <li class="list-group-item">
                        <div class="row">
                           <div class="col-sm-3">
-                             <label for="address">Phone:</label>
+                             <label class="font-weight-bold">No. Telp:</label>
                           </div>
                           <div class="col-sm-9">
                              {{ $owner->no_telp }}
-                             <a href="#" data-toggle="modal" data-target="#modalNomor" class="badge badge-primary">Edit</a>
+                             <a href="#" data-toggle="modal" data-target="#modalNomor" class="btn btn-sm btn-primary float-right">Edit</a>
                           </div>
                        </div>
                     </li>

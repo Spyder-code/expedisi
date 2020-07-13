@@ -81,9 +81,9 @@
             </button>
             </div>
         @endif
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-sm">
-                <div class="card">
+                <div class="card shadow-sm">
                 <form action="{{url('InputTransaksi')}}" method="post" class="form mt-5 mb-5 mr-5 ml-5" method="post">
                         @csrf
                         <input type="hidden" name="idExpedisi" id="idExpedisi">
@@ -165,13 +165,13 @@
                         </div>
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="col-sm col-sm-2">Harga</div>
-                                <div class="col-sm">
+                               <label for="">Harga</label>
+                                <div class="col-md-12">
                                     <input type="text" name="harga" id="harga" class="form-control" readonly="">
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success">Tambah transaksi</button>
+                        <button type="submit" class="btn btn-success mt-2">Tambah transaksi</button>
                     </form>
                 </div>
             </div>
@@ -221,20 +221,4 @@
             });
     </script>
 
-
-    {{-- <script>
-        $(function(){
-            $('#expedisi').change(function () {
-                var a = $(this).find(':selected').attr('data-harga')
-
-                $('#berat').keyup(function (e) {
-                var b = $(this).val();
-                    $('#harga').val(a*b);
-
-                });
-
-            });
-
-        });
-    </script> --}}
 @endsection

@@ -19,13 +19,6 @@
 
     <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
 
-    {{-- <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css"> --}}
-
-{{--
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css"> --}}
     <link rel="stylesheet" href="{{asset('css/style-user.css')}}">
          <!--=== FontAwesome CSS ===-->
     <link href="{{asset('fontawesome/css/font-awesome.css')}}" rel="stylesheet">
@@ -45,14 +38,10 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-				{{-- <li class="{{Route::is('/')? 'active' :''}}"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-				<li class="{{Route::is('/lacak')? 'active' :''}}"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
-				<li class="{{Route::is('/tarif')? 'active' :''}}"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
-                <li class="{{Route::is('/kontak')? 'active' :''}}"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li> --}}
-                <li class="@yield('Home')"><a href="{{url('/')}}" class="nav-link">Home</a></li>
-				<li class="@yield('Lacak')"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
-				<li class="@yield('Tarif')"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
-				<li class="@yield('Kontak')"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
+            <li class="@yield('Home')"><a href="{{url('/')}}" class="nav-link">Home</a></li>
+            <li class="@yield('Lacak')"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
+            <li class="@yield('Tarif')"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
+            <li class="@yield('Kontak')"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
 	        </ul>
 	      </div>
 	    </div>
