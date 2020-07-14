@@ -8173,7 +8173,7 @@ h1, h2, h3, h4, h5,
   z-index: 3; }
   @media (max-width: 991.98px) {
     .ftco-navbar-light {
-      background: #000000 !important;
+      background: #fff !important;
       position: relative;
       top: 0; } }
   .ftco-navbar-light .navbar-brand {
@@ -8182,7 +8182,7 @@ h1, h2, h3, h4, h5,
       color: #000000; }
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-brand {
-        color: #fff; } }
+        color: #000; } }
   @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav {
       padding-bottom: 10px; } }
@@ -8205,7 +8205,7 @@ h1, h2, h3, h4, h5,
         padding-bottom: .5em;
         color: rgba(255, 255, 255, 0.7); }
         .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
-          color: #fff; } }
+          color: #000; } }
   .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
     border: none;
     background: #fff;
@@ -8258,7 +8258,7 @@ h1, h2, h3, h4, h5,
     color: rgba(255, 255, 255, 0.5); }
   .ftco-navbar-light .navbar-toggler {
     border: none;
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(0, 0, 0, 0.5) !important;
     cursor: pointer;
     padding-right: 0;
     text-transform: uppercase;
@@ -8341,7 +8341,7 @@ h1, h2, h3, h4, h5,
 
 .hero-wrap {
   width: 100%;
-  height: 800px;
+  height: 600px;
   position: relative; }
   @media (max-width: 991.98px) {
     .hero-wrap {
@@ -8382,7 +8382,8 @@ h1, h2, h3, h4, h5,
       color: #000000; }
     .hero-wrap .slider-text .text {
       position: relative;
-      z-index: 1; }
+      z-index: 1;
+        margin-top:-120px }
     .hero-wrap .slider-text h1 {
       font-size: 54px;
       color: #fff;
@@ -8395,7 +8396,12 @@ h1, h2, h3, h4, h5,
           font-size: 50px; } }
       @media (max-width: 767.98px) {
         .hero-wrap .slider-text h1 {
-          font-size: 40px; } }
+          font-size: 40px;
+          margin-top:-120px;}
+        .hero-wrap{
+            height:700px
+        }
+        }
     .hero-wrap .slider-text p {
       color: rgba(255, 255, 255, 0.8);
       font-weight: 400; }

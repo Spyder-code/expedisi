@@ -1,59 +1,12 @@
 @extends('layouts.user')
 @section('Home', 'nav-item active')
 @section('content')
-<style>
-    .gallery {
--webkit-column-count: 3;
--moz-column-count: 3;
-column-count: 3;
--webkit-column-width: 33%;
--moz-column-width: 33%;
-column-width: 33%; }
-.gallery .pics {
--webkit-transition: all 350ms ease;
-transition: all 350ms ease; }
-.gallery .animation {
--webkit-transform: scale(1);
--ms-transform: scale(1);
-transform: scale(1); }
-
-@media (max-width: 450px) {
-.gallery {
--webkit-column-count: 1;
--moz-column-count: 1;
-column-count: 1;
--webkit-column-width: 100%;
--moz-column-width: 100%;
-column-width: 100%;
-}
-}
-
-@media (max-width: 400px) {
-.btn.filter {
-padding-left: 1.1rem;
-padding-right: 1.1rem;
-}
-}
-.color img{
-filter: grayscale(100%);
--webkit-filter: grayscale(100%);
--webkit-transition: all 1s ease;
-}
-
-.color img:hover{
-filter: grayscale(0%);
-filter: gray;
--webkit-filter: grayscale(0%);
-filter: none;
-transition: 1s ease;
-}
-  </style>
-<div class="hero-wrap img" style="background-image: url({{asset('image/home.gif')}});">
+<div class="hero-wrap img" style="background-image: url('{{asset('image/home.gif')}}')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-10 d-flex align-items-center ftco-animate">
-              <div class="text text-center pt-5 mt-md-5">
+              <div class="text text-center">
               <h1 class="mb-5">Pengiriman barang yang <strong>cepat dan aman</strong> via kapal laut</h1>
                           <div class="ftco-counter ftco-no-pt ftco-no-pb">
                   </div>
@@ -131,22 +84,22 @@ transition: 1s ease;
   <section class="ftco-section ftco-no-pt ftco-no-pb">
       <div class="container">
           <div class="row justify-content-center">
-              <div class="col-md-8">
+              <div class="col-sm-8">
                   <div class="category-wrap">
-                      <div class="row no-gutters">
-                          <div class="col-md">
+                      <div class="row no-gutters ls">
+                          <div class="col-sm">
                               <div class="top-category text-center no-border-left">
                                   <h3><a href="#">Kapal Pelni</a></h3>
                                   <span class="icon "><i class="fas fa-ship"></i></span>
                               </div>
                           </div>
-                          <div class="col-md">
+                          <div class="col-sm">
                               <div class="top-category text-center">
                                   <h3><a href="#">Pesawat</a></h3>
                                   <span class="icon "><i class="fas fa-plane"></i></span>
                               </div>
                           </div>
-                          <div class="col-md">
+                          <div class="col-sm">
                               <div class="top-category text-center">
                                   <h3><a href="#">kapal Cargo</a></h3>
                                   <span class="icon "><i class="fas fa-th-large"></i></span>
@@ -217,38 +170,115 @@ transition: 1s ease;
     </div>
   </section>
 
-<div class="container-fluid">
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-12 heading-section text-center ftco-animate">
-            <h2 class="mb-0 mt-5">Dokumentasi Ekspedisi</h2>
-            <div class="cardg">
-                <div class="card-body">
-                    <div class="gallery color" id="gallery">
-                        <div class="mb-3 pics animation all 2">
-                            <img class="img-fluid" src="{{asset('image/p5.jpg')}}" alt="Card image cap">
-                        </div>
-                        <div class="mb-3 pics animation all 2">
-                            <img class="img-fluid" src="{{asset('image/m1.jpg')}}" alt="Card image cap">
-                        </div>
-                        <div class="mb-3 pics animation all 1">
-                            <img class="img-fluid" src="{{asset('image/p4.jpg')}}" alt="Card image cap">
-                        </div>
-                        <div class="mb-3 pics animation all 2">
-                            <img class="img-fluid" src="{{asset('image/p7.jpg')}}" alt="Card image cap">
-                        </div>
-                        <div class="mb-3 pics animation all 1">
-                            <img class="img-fluid" src="{{asset('image/p1.jpg')}}" alt="Card image cap">
-                        </div>
-                        <div class="mb-3 pics animation all 1">
-                            <img class="img-fluid" src="{{asset('image/p2.jpg')}}" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+          <span class="subheading">Rizalgo</span>
+          <h2>Dokumentasi</h2>
         </div>
+      </div>
+      <div class="row d-flex">
+        <div class="col-md-3 d-flex ftco-animate">
+          <div class="blog-entry align-self-stretch">
+            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a1"  style="background-image: url('{{asset('image/1.jpeg')}}');">
+            </a>
+            <div class="text mt-3">
+              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a1">Ekspedisi menuju pulau Kei, pelabuhan kota Tual </a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex ftco-animate">
+          <div class="blog-entry align-self-stretch">
+            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a2"  style="background-image: url('{{asset('image/2.jpeg')}}');">
+            </a>
+            <div class="text mt-3">
+              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a2">Ekspedisi menuju kabupaten pulau Buru</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex ftco-animate">
+          <div class="blog-entry align-self-stretch">
+            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a3"  style="background-image: url('{{asset('image/3.jpeg')}}');">
+            </a>
+            <div class="text mt-3">
+              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a3">Ekspedisi menuju kabupaten saumlaki</a></h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex ftco-animate">
+          <div class="blog-entry align-self-stretch">
+            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a4"  style="background-image: url('{{asset('image/p4.jpg')}}');">
+            </a>
+            <div class="text mt-3">
+              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a4">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
+  {{-- modal 1 --}}
+  <div class="modal fade" id="a1" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{asset('image/1.jpeg')}}" style="height: 700px; width:100%" class="img-thumbnail" >
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- modal 2 --}}
+  <div class="modal fade" id="a2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{asset('image/2.jpeg')}}" style="height: 700px; width:100%" class="img-thumbnail" >
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- modal 3 --}}
+  <div class="modal fade" id="a3" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{asset('image/3.jpeg')}}" style="height: 700px; width:100%" class="img-thumbnail" >
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- modal 4 --}}
+  <div class="modal fade" id="a4" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="{{asset('image/p4.jpg')}}" style="height: 700px; width:100%" class="img-thumbnail" >
+        </div>
+      </div>
+    </div>
+  </div>
   <script>
       $.ajaxSetup({
             headers: {

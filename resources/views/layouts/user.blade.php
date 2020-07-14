@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
-    <link rel="icon" href="{{asset('image/logo.png')}}" type="image/png">
+    <link rel="icon" href="{{asset('image/favicon.png')}}" type="image/png">
     <link rel="stylesheet" href="{{asset('css/aos.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
