@@ -9477,6 +9477,7 @@ textarea.form-control {
   background-repeat: no-repeat;
   background-position: center center;
   height: 250px;
+  width:250px;
   position: relative;
   display: block; }
 

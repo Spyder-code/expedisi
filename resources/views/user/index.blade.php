@@ -181,7 +181,7 @@
       <div class="row d-flex">
         <div class="col-md-3 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
-            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a1"  style="background-image: url('{{asset('image/1.jpeg')}}');">
+            <a href="#" class="block-20 card-shadow" data-toggle="modal" data-target="#a1"  style="background-image: url('{{asset('image/1.jpeg')}}');">
             </a>
             <div class="text mt-3">
               <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a1">Ekspedisi menuju pulau Kei, pelabuhan kota Tual </a></h3>
@@ -190,7 +190,7 @@
         </div>
         <div class="col-md-3 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
-            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a2"  style="background-image: url('{{asset('image/2.jpeg')}}');">
+            <a href="#" class="block-20 card-shadow" data-toggle="modal" data-target="#a2"  style="background-image: url('{{asset('image/2.jpeg')}}');">
             </a>
             <div class="text mt-3">
               <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a2">Ekspedisi menuju kabupaten pulau Buru</a></h3>
@@ -199,7 +199,7 @@
         </div>
         <div class="col-md-3 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
-            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a3"  style="background-image: url('{{asset('image/3.jpeg')}}');">
+            <a href="#" class="block-20 card-shadow" data-toggle="modal" data-target="#a3"  style="background-image: url('{{asset('image/3.jpeg')}}');">
             </a>
             <div class="text mt-3">
               <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a3">Ekspedisi menuju kabupaten saumlaki</a></h3>
@@ -208,7 +208,7 @@
         </div>
         <div class="col-md-3 d-flex ftco-animate">
           <div class="blog-entry align-self-stretch">
-            <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a4"  style="background-image: url('{{asset('image/p4.jpg')}}');">
+            <a href="#" class="block-20 card-shadow" data-toggle="modal" data-target="#a4"  style="background-image: url('{{asset('image/p4.jpg')}}');">
             </a>
             <div class="text mt-3">
               <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a4">Perjalanan Ekspedisi Kapal</a></h3>
