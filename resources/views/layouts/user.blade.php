@@ -3,6 +3,8 @@
   <head>
     <title>Rizalgo expedisi</title>
     <meta charset="utf-8">
+    <meta name="description" content="ekspedisi">
+    <meta name="keywords" content="rizalgo, Rizalgo">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -28,7 +30,7 @@
   <body>
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container-fluid px-md-4	">
+	    <div class="container-fluid px-md-4">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('image/logo.png')}}" alt="">
         </a>
