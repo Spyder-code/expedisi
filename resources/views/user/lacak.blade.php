@@ -1,5 +1,8 @@
 @extends('layouts.user')
 @section('Lacak', 'nav-item active')
+@section('Home', 'nav-item')
+@section('Tarif', 'nav-item')
+@section('Kontak', 'nav-item')
 @section('content')
 <div class="hero-wrap hero-wrap-2 mb-5" style="background-image: url('{{asset('image/sea.gif')}}');" data-stellar-background-ratio="0.5">
 <div class="overlay"></div>
