@@ -211,7 +211,7 @@
             <a href="blog-single.html" class="block-20 card-shadow" data-toggle="modal" data-target="#a4"  style="background-image: url('{{asset('image/p4.jpg')}}');">
             </a>
             <div class="text mt-3">
-              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a4">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+              <h3 class="heading text-center"><a href="#" data-toggle="modal" data-target="#a4">Perjalanan Ekspedisi Kapal</a></h3>
             </div>
           </div>
         </div>
