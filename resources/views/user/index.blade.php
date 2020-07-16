@@ -123,17 +123,23 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-md-6 ftco-animate">
+        <div class="col-md-3 ftco-animate">
+            <img src="{{asset('image/kapal-2.jpg')}}" style="width: 370px">
+        </div>
+        <div class="col-md-3 ftco-animate">
             <ul class="category text-center">
                 <li><a href="#">Provinsi Papua <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
                 <li><a href="#">Provinsi Papua Barat<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
             </ul>
         </div>
-        <div class="col-md-6 ftco-animate">
+        <div class="col-md-3 ftco-animate">
             <ul class="category text-center">
                 <li><a href="#">Provinsi Maluku Utara<br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
           <li><a href="#">Provinsi Maluku <br><span class="number">200</span> <span>Pulau</span><i class="ion-ios-arrow-forward"></i></a></li>
             </ul>
+        </div>
+        <div class="col-md-3 ftco-animate">
+            <img src="{{asset('image/kapal-1.jpg')}}" style="width: 370px">
         </div>
     </div>
     </div>

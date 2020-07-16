@@ -3,8 +3,8 @@
   <head>
     <title>Rizalgo expedisi</title>
     <meta charset="utf-8">
-    <meta name="description" content="Ekspedisi laut tujuan maluku, ambon, papua.Door to door, tracking real time, dan harga murah">
-    <meta name="keywords" content="rizalgo, Rizalgo">
+    <meta name="description" content="Ekspedisi laut tujuan maluku, ambon, papua. Door to door, tracking real time, dan tarif murah">
+    <meta name="keywords" content="rizalgo, Rizalgo, rizalgo ekspedis, ekspedisi ambon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -60,11 +60,11 @@
               <h2 class="ftco-heading-2">Tentang kami</h2>
               <h2 class="ftco-heading-2">Rizalgo Expedisi</h2>
               <p>Pengiriman cepat dan aman, Door to Door, Tarif expedisi murah</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+              {{-- <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>
+              </ul> --}}
             </div>
           </div>
           <div class="col-md">
