@@ -9,6 +9,7 @@ use App\Service;
 use App\Chats;
 use App\User;
 use App\Area;
+use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +71,12 @@ class HomeController extends Controller
     {
         $result = Company::all();
         return view('admin.perusahaan', ['perusahaan' => $result->first()]);
+    }
+
+    public function gallery()
+    {
+        $gallery = Gallery::all();
+        return view('admin.gallery', ['gallery' => $gallery]);
     }
 
     public function expedisi()

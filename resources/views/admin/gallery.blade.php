@@ -68,7 +68,7 @@
 
        <!-- Page Heading -->
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Tambah Expedisi</h1>
+          <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
       </div>
 
         @if (session('status'))
@@ -95,26 +95,30 @@
                             <thead class="table-dark">
                               <tr>
                                 <th scope="col-sm">No</th>
-                                <th scope="col-sm">Id</th>
-                                <th scope="col-sm">Nama expedisi</th>
+                                <th scope="col-sm">Gambar</th>
+                                <th scope="col-sm">Caption</th>
+                                <th scope="col-sm">Tanggal</th>
                                 <th scope="col-sm">Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
-                                @foreach($expedisi as $ex)
+                                @foreach($gallery as $gal)
                                <tr>
                                   <th scope="row">{{ $loop->iteration }}</th>
-                                  <th scope="row">{{ $ex->id }}</th>
-                                  <td>{{ $ex->nama }}</td>
-                                  <td><a class="btn btn-primary btn-sm text-light" data-toggle="modal" data-target="#ub-{{$ex->id}}">Ubah</a>
-                                    <form action="{{url('HapusExpedisi')}}" method="POST" class="d-inline">
-                                        <input type="hidden" name="id" value="{{$ex->id}}">
+                                  {{-- <th scope="row">{{ $gal->gambar }}</th> --}}
+                                  <th><img width="100" height="100" src="{{ url('/image/gallery/'.$gal->gambar) }}"></th>
+                                  <td>{{ $gal->caption }}</td>
+                                  <td>{{ $gal->created_at = date("d-M-Y") }}</td>
+                                  <td><a class="btn btn-primary btn-sm text-light" data-toggle="modal" data-target="#ub-{{$gal->id}}">Ubah</a>
+                                    <form action="{{url('/HapusGallery')}}" method="POST" class="d-inline">
+                                    <input type="hidden" name="id" value="{{$gal->id}}">
+                                    <input type="hidden" name="Image" value="{{$gal->gambar}}">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('apakah kamu yakin menghapus layanan ini?')">Hapus</button>
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah kamu yakin akan menghapusnya?')">Hapus</button>
                                     </form>
                                    </td>
 
-                                    <div class="modal fade" id="ub-{{$ex->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="ub-{{$gal->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -124,12 +128,27 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{url('UpdateExpedisi')}}" method="post">
-                                                    <input type="hidden" name="id" value="{{$ex->id}}">
+                                                <form action="{{url('/UpdateGallery')}}" method="post" enctype="multipart/form-data">
+                                                    <input type="hidden" name="id" value="{{$gal->id}}">
+                                                    <input type="hidden" name="oldImage" value="{{$gal->gambar}}">
                                                     @csrf
                                                     <div class="form-group">
-                                                        <label for="">Nama Expedisi</label>
-                                                        <input type="text" name="nama" class="form-control" value="{{$ex->nama}}">
+                                                            <label for="inputGambar" class="mb-4">Masukan Gambar Gallery</label>
+                                                            <input type="file" name="gambar" value="{{$gal->gambar}}" id="inputGambar" onchange="loadFile(event)" required>
+                                                            <img id="review" class="img-thumbnail mt-3" class="img-responsive"/>
+                                                            <script>
+                                                            var loadFile = function(event) {
+                                                                var output = document.getElementById('review');
+                                                                output.src = URL.createObjectURL(event.target.files[0]);
+                                                                output.onload = function() {
+                                                                URL.revokeObjectURL(output.src)
+                                                                }
+                                                            };
+                                                            </script>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Caption</label>
+                                                        <input type="text" name="caption" class="form-control" value="{{$gal->caption}}">
                                                     </div>
                                                     <button type="submit" class="btn btn-sm btn-primary float-right">Submit</button>
                                                 </form>
@@ -148,16 +167,30 @@
             <div class="col-sm col-sm-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h4 class="text-center mt-3">Tambah Expedisi</h4>
+                        <h4 class="text-center mt-3">Tambah Gallery</h4>
                         <hr>
-                        <form action="{{url('admin/expedisi')}}" method="POST">
+                        <form action="{{url('/TambahGallery')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="name">Nama Expedisi</label>
-                                <input type="text" name="nama" id="nama" class="form-control">
+                                <label for="inputImage" class="mb-4">Masukan Gambar</label>
+                                <input type="file" name="gambar" id="inputImage" onchange="File(event)" required>
+                                <img id="output" class="img-thumbnail mt-3" />
+                                <script>
+                                var File = function(event) {
+                                    var output = document.getElementById('output');
+                                    output.src = URL.createObjectURL(event.target.files[0]);
+                                    output.onload = function() {
+                                    URL.revokeObjectURL(output.src)
+                                    }
+                                };
+                                </script>
+                            </div>
+                            <div class="form-group">
+                                <label for="caption">Caption</label>
+                                <input type="text" name="caption" id="caption" class="form-control">
                             </div>
                             <div class="form-group text-center">
-                                <button type="submit" class="btn btn-success mt-3">Tambah Expedisi</button>
+                                <button type="submit" class="btn btn-success mt-3">Tambah Gallery</button>
                             </div>
 
                         </form>

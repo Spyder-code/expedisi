@@ -51,6 +51,12 @@
  </li>
 
  <li class="nav-item">
+    <a class="nav-link" href="{{url('admin/gallery')}}">
+      <i class="fas fa-camera"></i>
+      <span>Gallery</span></a>
+ </li>
+
+ <li class="nav-item">
    <a class="nav-link" href="{{url('admin/pesan')}}">
      <i class="fas fa-envelope"></i>
      <span>Pesan</span></a>
