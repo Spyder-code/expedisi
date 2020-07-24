@@ -11,6 +11,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'caption'  => 'required',
+            'tanggal' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          ]);
          if ($files = $request->file('gambar')) {
@@ -19,6 +20,7 @@ class GalleryController extends Controller
             $insert['image'] = "$profileImage";
             Gallery::create([
             'gambar' =>  "$profileImage",
+            'tanggal' => $request->tanggal,
             'caption' => $request->caption
             ]);
         }
@@ -31,6 +33,7 @@ class GalleryController extends Controller
             File::delete(public_path('image/gallery/'.$request->oldImage));
                 $request->validate([
                     'caption'  => 'required',
+                    'tanggal' => 'required',
                     'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ]);
                 if ($files = $request->file('gambar')) {
@@ -40,6 +43,7 @@ class GalleryController extends Controller
                     Gallery::where('id',$request->id)
                         ->update([
                         'gambar' =>  "$profileImage",
+                        'tanggal' => $request->tanggal,
                         'caption' => $request->caption
                 ]);
                 }

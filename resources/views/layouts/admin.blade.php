@@ -19,6 +19,14 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    {{-- <link href="{{asset('css/bootstrap-datepicker.css')}}" rel="stylesheet">
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/bootstrap-datepicker.js')}}" type="text/javacript"></script> --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script> --}}
     </head>
 
     <body id="page-top">
@@ -152,6 +160,9 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
     <script src="{{ asset('user/chart.js/Chart.min.js') }}"></script>
+
+
+
 
     @yield('custom-script')
     @yield('custom-script2')

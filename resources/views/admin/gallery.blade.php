@@ -108,7 +108,7 @@
                                   {{-- <th scope="row">{{ $gal->gambar }}</th> --}}
                                   <th><img width="100" height="100" src="{{ url('/image/gallery/'.$gal->gambar) }}"></th>
                                   <td>{{ $gal->caption }}</td>
-                                  <td>{{ $gal->created_at = date("d-M-Y") }}</td>
+                                  <td>{{ $gal->tanggal }}</td>
                                   <td><a class="btn btn-primary btn-sm text-light" data-toggle="modal" data-target="#ub-{{$gal->id}}">Ubah</a>
                                     <form action="{{url('/HapusGallery')}}" method="POST" class="d-inline">
                                     <input type="hidden" name="id" value="{{$gal->id}}">
@@ -146,6 +146,11 @@
                                                             };
                                                             </script>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="tanggal">Tanggal</label>
+                                                        <input class="date form-control" name="tanggal" id="date" type="text" value="{{$gal->tanggal}}">
+                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="">Caption</label>
                                                         <input type="text" name="caption" class="form-control" value="{{$gal->caption}}">
@@ -186,16 +191,26 @@
                                 </script>
                             </div>
                             <div class="form-group">
+                              <label for="tanggal">Tanggal</label>
+                              <input class="date form-control" name="tanggal" id="date" type="text">
+                            </div>
+                            <div class="form-group">
                                 <label for="caption">Caption</label>
                                 <input type="text" name="caption" id="caption" class="form-control">
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-success mt-3">Tambah Gallery</button>
                             </div>
-
                         </form>
+
                     </div>
                 </div>
             </div>
     </div>
+    <script type="text/javascript">
+        $(".date").datepicker({
+            autoclose: true,
+            format: 'dd-mm-yyyy'
+        });
+    </script>
 @endsection
