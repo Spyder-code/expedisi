@@ -43,6 +43,7 @@
             <li class="@yield('Home')"><a href="{{url('/')}}" class="nav-link">Home</a></li>
             <li class="@yield('Lacak')"><a href="{{url('/lacak')}}" class="nav-link">Lacak</a></li>
             <li class="@yield('Tarif')"><a href="{{url('/tarif')}}" class="nav-link">Cek Tarif</a></li>
+            <li class="@yield('Galery')"><a href="{{url('/galery')}}" class="nav-link">Gallery</a></li>
             <li class="@yield('Kontak')"><a href="{{url('/kontak')}}" class="nav-link">Kontak Kami</a></li>
 	        </ul>
 	      </div>

@@ -93,5 +93,10 @@ class UserController extends Controller
             return view('user.tampillacak', ['data_lacak' => $data_lacak, 'perusahaan' => $perusahaan]);
         }
     }
+
+     public function galery()
+    {
+        return view('user/galery');
+    }
 }
 

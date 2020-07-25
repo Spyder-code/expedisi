@@ -40,6 +40,13 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+/*gallery*/
+.galery img {
+   height: 200px;
+   padding: 7px;
+
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

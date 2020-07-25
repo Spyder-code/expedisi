@@ -68,6 +68,7 @@ Route::get('/TampilLacak', 'UserController@tampillacak');
 Route::get('/', ['middleware' => 'access-log', 'uses' => 'UserController@index']);
 Route::get('/lacak', 'UserController@lacak');
 Route::get('/tarif', 'UserController@tarif');
+Route::get('galery', 'UserController@galery');
 Route::get('/kontak', 'UserController@kontak');
 Route::post('/MasukPesan', 'UserController@MasukPesan');
 Route::post('/CekTarif', 'UserController@CekTarif');
