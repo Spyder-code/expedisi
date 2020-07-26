@@ -7,11 +7,112 @@
 
 <style>
 
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+.a{
+    height: 400px;
+    width: 100%;
+}
+.b{
+    height: 180px;
+    width: 100%;
+}
  @media (max-width:767.98px) {
      .padding {
          padding: 1rem
      }
  }
+ @media only screen and (max-width: 600px){
+        .a{
+            min-width:500px;
+        }
+        .b{
+            height:100px;
+        }
+        .carousel-inner{
+            max-width: 700px;
+        }
+        .card-item{
+            min-width:120px;
+        }
+    }
 
  .padding {
      padding: 3rem
@@ -41,7 +142,7 @@
 <div class="container">
   <div class="row no-gutters slider-text align-items-end justify-content-start">
     <div class="col-md-12 ftco-animate text-center mb-5">
-      <h1 class="mb-3 bread">GALLERY RIZALGO</h1>
+      <h1 class="mb-3 bread">GALLERY EKSPEDISI</h1>
     </div>
   </div>
 </div>
@@ -49,7 +150,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col col-sm-4 mt-5 mb-5">
+        <div class="col col-sm-4 mt-2 mb-5">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -57,15 +158,17 @@
                   <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{asset('image/p1.jpg')}}" style="height: 600px" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('image/p2.jpg')}}" style="height: 600px" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="{{asset('image/p4.jpg')}}" style="height: 600px" alt="Third slide">
-                  </div>
+                    @foreach ($data3 as $item)
+                        @if ($item->id==1)
+                        <div class="carousel-item active">
+                            <img class="a img" src="{{asset('image/gallery/'.$item->gambar)}}" style="height: 400px" alt="{{$item->caption}}">
+                        </div>
+                        @else
+                        <div class="carousel-item">
+                            <img class="a img" src="{{asset('image/gallery/'.$item->gambar)}}" style="height: 400px" alt="{{$item->caption}}">
+                        </div>
+                        @endif
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -77,72 +180,20 @@
                 </a>
               </div>
         </div>
-        <div class="col col-md text-center">
-            <h3 class="mt-3">Gallery Ekspedisi</h3>
-            <hr>
-            <div class="row mt-3">
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
+        <div class="col col-sm-8 text-center">
+            <div class="row mt-2">
+                @foreach ($data1 as $item)
+                <div class="col col-sm-3">
+                    <div class="card card-item mt-3" style="height: 250px">
+                        <img src="{{asset('image/gallery/'.$item->gambar)}}" class="b img" style="height: 180px; width:100%" alt="{{$item->caption}}" />
+                        <p>{{$item->caption}}</p>
                     </div>
                 </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
-                <div class="col col-sm">
-                    <div class="card">
-                        <img src="{{asset('image/p4.jpg')}}" class="img-thumbnail" style="height: 180px; width:100%" alt="image" />
-                        <p>Caption</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row mt-4">
                 <div class="col col-sm text-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                      </nav>
+                    {{ $data1->links() }}
                 </div>
             </div>
         </div>
@@ -152,47 +203,58 @@
 <section class="ftco-section services-section">
     <div class="container">
         <div class="owl-carousel text-center">
-            <div class="item card">
-                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204140/banner_12.jpg" alt="image" />
-                <p>Caption</p>
+            @foreach ($data2 as $item)
+            <div class="item card" style="height: 250px">
+                <img class="img" src="{{asset('image/gallery/'.$item->gambar)}}" style="height: 180px;" alt="{{$item->caption}}" />
+                <p>{{$item->caption}}</p>
             </div>
-            <div class="item card">
-                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204140/banner_12.jpg" alt="image" />
-                <p>Caption</p>
-            </div>
-            <div class="item card">
-                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204140/banner_12.jpg" alt="image" />
-                <p>Caption</p>
-            </div>
-            <div class="item card">
-                <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1557204140/banner_12.jpg" alt="image" />
-                <p>Caption</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
 
 {{-- modal 4 --}}
-  <div class="modal fade" id="a4" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <img src="{{asset('image/p4.jpg')}}" style="height: 700px; width:100%" class="img-thumbnail" >
-        </div>
-      </div>
-    </div>
-  </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="gambarModal">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
+</div>
 
   <script>
+      // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
      $(function () {
+         $('.img').click(function (e) { 
+                e.preventDefault();
+                $('#myModal').css("display", "block");
+                var src = $(this).attr('src');
+                var alt = $(this).attr('alt');
+                $('#gambarModal').attr('src',src);
+                $('#caption').html(alt);
+                $('#myModal').click(function (e) { 
+                    e.preventDefault();
+                    $('#myModal').css("display", "none");
+                });
+         });
         $(".owl-carousel").owlCarousel({
             autoplay:true,
-            items : 4,
+            items : 2,
             itemsDesktop : [1199,3],
             itemsDesktopSmall : [979,3],
             center: true,

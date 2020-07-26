@@ -75,7 +75,7 @@ class HomeController extends Controller
 
     public function gallery()
     {
-        $gallery = Gallery::all();
+        $gallery = Gallery::orderBy('id', 'DESC')->paginate(4);
         return view('admin.gallery', ['gallery' => $gallery]);
     }
 

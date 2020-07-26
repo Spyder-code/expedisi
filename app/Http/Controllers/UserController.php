@@ -8,6 +8,7 @@ use App\Service;
 use App\Chats;
 use App\User;
 use App\Area;
+use App\Gallery;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -96,7 +97,10 @@ class UserController extends Controller
 
      public function galery()
     {
-        return view('user/galery');
+        $data1 = Gallery::orderBy('id', 'DESC')->paginate(8);
+        $data2 = Gallery::orderBy('id', 'DESC')->paginate(10);
+        $data3 = Gallery::paginate(3);
+        return view('user/galery',compact('data1','data2','data3'));
     }
 }
 

@@ -22,7 +22,7 @@
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
 					<div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Username">
+                        <input class="input100" autofocus type="text" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Username">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

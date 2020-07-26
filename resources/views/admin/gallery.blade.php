@@ -147,7 +147,7 @@
                                                             </script>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="tanggal">Tanggal</label>
+                                                        <label for="tanggal">Tanggal (Optional)</label>
                                                         <input class="date form-control" name="tanggal" id="date" type="text" value="{{$gal->tanggal}}">
                                                     </div>
 
@@ -166,6 +166,11 @@
                             </tbody>
                           </table>
                         </div>
+                        <div class="row">
+                            <div class="col ml-3">
+                                {{$gallery->links()}}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -179,9 +184,11 @@
                             <div class="form-group">
                                 <label for="inputImage" class="mb-4">Masukan Gambar</label>
                                 <input type="file" name="gambar" id="inputImage" onchange="File(event)" required>
-                                <img id="output" class="img-thumbnail mt-3" />
+                                <img id="output" style="height:180px; width:100%" class="img-thumbnail mt-3" />
                                 <script>
+                                    $('#output').hide();
                                 var File = function(event) {
+                                    $('#output').show();
                                     var output = document.getElementById('output');
                                     output.src = URL.createObjectURL(event.target.files[0]);
                                     output.onload = function() {
@@ -191,7 +198,7 @@
                                 </script>
                             </div>
                             <div class="form-group">
-                              <label for="tanggal">Tanggal</label>
+                              <label for="tanggal">Tanggal (Optional)</label>
                               <input class="date form-control" name="tanggal" id="date" type="text">
                             </div>
                             <div class="form-group">

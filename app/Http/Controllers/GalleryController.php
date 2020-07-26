@@ -11,7 +11,6 @@ class GalleryController extends Controller
     {
         $request->validate([
             'caption'  => 'required',
-            'tanggal' => 'required',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          ]);
          if ($files = $request->file('gambar')) {
